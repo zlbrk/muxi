@@ -10,6 +10,7 @@ function refreshView()
 	if ~isempty(Cart)
 		highlightCart(); % подсвечиваем выбранные точки
 	end
+	
 	showPointIDs(); % Выводим номера точек
 
 	xlim(GA.XLim);
