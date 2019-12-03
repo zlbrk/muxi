@@ -5,7 +5,6 @@ pp = @(Ids) pickPoints(Ids);
 dp = @(Ids) dropPoints(Ids);
 cc = @() clearCart();
 mv = @(dz, dr) movePoints(dz, dr);
-sm = @(Mesh) showMesh(Mesh);
 tm = @() toggleMesh();
 
 initFigure = @(ZMIN, ZMAX, RMIN, RMAX) initFigure(ZMIN, ZMAX, RMIN, RMAX);

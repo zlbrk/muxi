@@ -3,11 +3,11 @@ clear;
 close all;
 clc;
 
-%Попытка подключения API
+%Определение псевдонимов API
 aliases;
 
-oldpath = path;
-path(oldpath,'ux;render');
+opath = path; % old path
+path(opath,'ux; render; bin; io'); % new path
 
 global Colors;
   Colors.Void = [220, 220, 220]/255;
@@ -92,10 +92,21 @@ global Mesh;
 
 initFigure(ZMIN, ZMAX, RMIN, RMAX);
 % pause
-drawVoid();
-% pause
-drawCathode();
-% pause
-drawPoints();
-% pause
-showPointIDs();
+refreshView();
+
+% drawVoid();
+% % pause
+% drawCathode();
+% % pause
+% drawPoints();
+% % pause
+% showPointIDs();
+
+% !hello
+% cases = {'case1', 'case2', 'case3'}
+% for i = 1:numel(cases)
+% 	cmd = '!cflags -word';
+% 	[status,cmdout] = system(cmd)
+	
+% end
+		
