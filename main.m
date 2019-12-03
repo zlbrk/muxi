@@ -39,7 +39,7 @@ ZRpts = numel(ZR(:, 1)); % Количество точек в контуре
 for i = 1:ZRpts
 	p.id = i;
 	
-    p.Volt = 0;
+    p.Voltage = 0;
     p.Phi = 0;
     
 	p.prev = p.id - 1;
