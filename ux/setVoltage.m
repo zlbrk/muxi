@@ -8,7 +8,7 @@ function setVoltage(V)
 
     U0 = max([ConStruct.Voltage]); % Берём максимальное значение напряжения из доступных
     setPhi(U0);
-    colorContour();
+    % colorContour();
     %refreshView();
    end
 
