@@ -6,6 +6,7 @@ function refreshView()
 	cla(); % очищаем оси
 	drawVoid(); % рисуем контур
 	drawCathode(); % рисуем катод
+    %colorContour();
 	drawPoints(); % рисуем все точки
 	if ~isempty(Cart)
 		highlightCart(); % подсвечиваем выбранные точки
