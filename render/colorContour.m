@@ -1,7 +1,7 @@
 function colorContour()
 
     global ConStruct;
-    global Cart;
+
     
     for i = Cart
                
