@@ -4,18 +4,16 @@ function showBC()
     CW = 64; % color width
     c = jet(CW);
         
-    uPhi = unique([ConStruct.Phi]); % РС‰РµРј СѓРЅРёРєР°Р»СЊРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ Phi
+    uPhi = unique([ConStruct.Phi]); % Ищем уникальные значения Phi
     
     for i = 1:numel(uPhi)
-        Eids = find([ConStruct.Phi] == uPhi(i)); % РС‰РµРј РёРЅРґРµРєСЃС‹ СЌР»РµРєС‚СЂРѕРґРѕРІ
-        Ecol = fix(uPhi(i)*CW); % Р’С‹С‡РёСЃР»СЏРµРј РЅРѕРјРµСЂ С†РІРµС‚Р° i-РіРѕ СЌР»РµРєС‚СЂРѕРґР°
+        Eids = find([ConStruct.Phi] == uPhi(i)); % Ищем индексы электродов
+        Ecol = fix(uPhi(i)*CW); % Вычисляем номер цвета i-го электрода
         if Ecol == 0
             Ecol = 1;
         end
         colorContour(Eids, Ecol, c);
     end
-    drawPoints();
-    showPointIDs();
     
 end
 
