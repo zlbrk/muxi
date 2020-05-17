@@ -1,18 +1,18 @@
-% РџРµСЂРµСЂРёСЃРѕРІРєР° СЂР°Р±РѕС‡РµРіРѕ РІРёРґР°
+% Перерисовка рабочего вида
 function refreshView()
 	global ConStruct;
 	global Cart;
 	global GA;	
 	
-	cla(); % РѕС‡РёС‰Р°РµРј РѕСЃРё
-	drawVoid(); % СЂРёСЃСѓРµРј РєРѕРЅС‚СѓСЂ
-	drawCathode(); % СЂРёСЃСѓРµРј РєР°С‚РѕРґ
- 	showBC();
-	drawPoints(); % СЂРёСЃСѓРµРј РІСЃРµ С‚РѕС‡РєРё
+	cla(); % очищаем оси
+	drawVoid(); % рисуем контур
+	drawCathode(); % рисуем катод
+ 	showBC(); % отображаем граничные условия
+	drawPoints(); % рисуем все точки
 	if ~isempty(Cart)
-		highlightCart(); % РїРѕРґСЃРІРµС‡РёРІР°РµРј РІС‹Р±СЂР°РЅРЅС‹Рµ С‚РѕС‡РєРё
+		highlightCart(); % подсвечиваем выбранные точки
 	end
-	showPointIDs(); % Р’С‹РІРѕРґРёРј РЅРѕРјРµСЂР° С‚РѕС‡РµРє
+	showPointIDs(); % Выводим номера точек
 
 	xlim(GA.XLim);
 	ylim(GA.YLim);

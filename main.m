@@ -8,6 +8,7 @@ aliases;
 
 opath = path; % old path
 path(opath,'ux; render; bin; io'); % new path
+clear opath;
 
 global Colors;
   Colors.Void = [220, 220, 220]/255;

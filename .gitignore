@@ -1,3 +1,4 @@
 /stash
 *.exe
 *.mat
+/TEST

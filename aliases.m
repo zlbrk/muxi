@@ -1,4 +1,4 @@
-% Это типа набор псевдонимов функций, реализации которых раскиданы по директориям
+% Р­С‚Рѕ С‚РёРїР° РЅР°Р±РѕСЂ РїСЃРµРІРґРѕРЅРёРјРѕРІ С„СѓРЅРєС†РёР№, СЂРµР°Р»РёР·Р°С†РёРё РєРѕС‚РѕСЂС‹С… СЂР°СЃРєРёРґР°РЅС‹ РїРѕ РґРёСЂРµРєС‚РѕСЂРёСЏРј
 
 refreshView = @() refreshView();
 bc = @() showBC();
@@ -9,10 +9,10 @@ mv = @(dz, dr) movePoints(dz, dr);
 tm = @() toggleMesh();
 sv = @(V) setVoltage(V);
 
-initFigure = @(ZMIN, ZMAX, RMIN, RMAX) initFigure(ZMIN, ZMAX, RMIN, RMAX);
-drawVoid = @() drawVoid();
-drawPoints = @() drawPoints();
-drawCathode = @() drawCathode();
-showPointIDs = @() showPointIDs();
+% initFigure = @(ZMIN, ZMAX, RMIN, RMAX) initFigure(ZMIN, ZMAX, RMIN, RMAX);
+% drawVoid = @() drawVoid();
+% drawPoints = @() drawPoints();
+% drawCathode = @() drawCathode();
+% showPointIDs = @() showPointIDs();
 
-% save('aliases.mat'); % на всякий случай?
+% save('aliases.mat'); % РЅР° РІСЃСЏРєРёР№ СЃР»СѓС‡Р°Р№?
