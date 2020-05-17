@@ -1,0 +1,15 @@
+SP/S     0.001
+normZ    1.62,5.27
+normR    7,7
+normD    0.
+numbTR   67
+D        0.045
+numbITER 30
+crossZ   10.
+accLS    -6.0
+accTR    0.002236
+factor   0.5
+limitJ   1000.
+minusJ   1.
+traceequ 1
+FINISH
