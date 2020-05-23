@@ -7,7 +7,7 @@ clc;
 aliases;
 
 opath = path; % old path
-path(opath,'ux; render; bin; io'); % new path
+path(opath,'ux; render; bin; io; TEST/IN/'); % new path
 clear opath;
 
 global Colors;
