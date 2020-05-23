@@ -17,9 +17,9 @@ stepsZ = [Mesh.stepsZ];
 zonesR = [Mesh.zonesR];
 stepsR = [Mesh.stepsR];
 
-%fprintf('Количество точек контура %d\n',numel(Z))
+fprintf('Количество точек контура %d\n',numel(contZ));
 
-fid = fopen('inr.tx', 'w');
+fid = fopen('./TEST/IN/inr.tx', 'w');
 
 % записываем координаты контура
 %---------------------------------------
@@ -39,8 +39,9 @@ fprintf(fid, '1.0E10\n\n');
 
 %записываем значение потенциала в точках
 %---------------------------------------
-u = unique(contFI);
-L = length(find(contFI==u(1)));
+u = unique(contFI)
+% L = length(find(contFI==u(1)))
+% pause
 
 fprintf(fid, 'contFI\n');
 for i=1:numel(u);
