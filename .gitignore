@@ -1,4 +1,4 @@
 /stash
+/TEST
 *.exe
 *.mat
-/TEST
