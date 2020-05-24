@@ -56,11 +56,11 @@ for i = 1:ZRpts
 	p.Z = ZR(i, 1);
 	
 	p.R = ZR(i, 2);
-	if p.R > 0
-		p.isArc = 0;
-	elseif p.R < 0
-		p.isArc = 1;
-	end
+	% if p.R > 0
+	% 	p.isArc = 0;
+	% elseif p.R < 0
+	% 	p.isArc = 1;
+	% end
 	
 	ConStruct = [ConStruct p];
 end
