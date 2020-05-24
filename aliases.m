@@ -3,6 +3,7 @@
 refreshView = @() refreshView();
 pp = @(Ids) pickPoints(Ids);
 dp = @(Ids) dropPoints(Ids);
+an = @(num) addPointsNext(num);
 cc = @() clearCart();
 mv = @(dz, dr) movePoints(dz, dr);
 tm = @() toggleMesh();
