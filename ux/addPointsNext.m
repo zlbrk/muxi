@@ -9,6 +9,20 @@ function addPointsNext(number)
 		return
 	end
 
+% ≈сли выбираетс€ отрицательное число новых точек контура
+	if number < 1
+		fprintf ('Enter a positive number!\n');
+		return
+	end
+
+% ≈сли выбираетс€ последн€€ точка контура
+numPoints = [ConStruct.id];
+
+	if Cart == max(numPoints)
+		fprintf('Last point selected!\n');
+		return
+	end
+
 	PointId = Cart;
 
 	ConStructHead = ConStruct(1:PointId);
