@@ -14,11 +14,11 @@ function addPointsNext(number)
 	ConStructHead = ConStruct(1:PointId);
 	ConStructTail = ConStruct(PointId+1:end);
 
-	for i = 1:numel(ConStructTail)
+    for i = 1:numel(ConStructTail)
 		%Сдвигаем индексы хвостовой части на количество добавляемых точек
 		ConStructTail(i).id = ConStructTail(i).id+number;
     end
-    NewPoints = [];
+    % NewPoints = [];
 	NewPoints = evalNewPointsData(ConStructHead(end), ConStructTail(1), number);
 
 	ConStruct = [ConStructHead NewPoints ConStructTail];
@@ -27,7 +27,7 @@ function addPointsNext(number)
 end
 
 function NewPoints = evalNewPointsData(HeadLast, TailFirst, number)
-	global ConStruct;
+	% global ConStruct;
 
 	% Здесь фокус в том, чтобы не забыть начальную и конечную точки при использовании linspace
 	if HeadLast.Z~=TailFirst.Z
