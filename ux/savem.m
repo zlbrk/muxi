@@ -2,7 +2,7 @@ function savem()
 global ConStruct
 global Colors
 
-prompt = 'Give me the name\n';
+prompt = 'Name your model, please.\n';
 
 filename = input(prompt, 's');
 
