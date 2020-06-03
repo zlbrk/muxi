@@ -1,6 +1,6 @@
 function addPointsNext(number)
-% добавление точек в контур
-% надо сделать аргумент необязательным
+% РґРѕР±Р°РІР»РµРЅРёРµ С‚РѕС‡РµРє РІ РєРѕРЅС‚СѓСЂ
+% РЅР°РґРѕ СЃРґРµР»Р°С‚СЊ Р°СЂРіСѓРјРµРЅС‚ РЅРµРѕР±СЏР·Р°С‚РµР»СЊРЅС‹Рј
 	global Cart;
 	global ConStruct;
 
@@ -9,13 +9,13 @@ function addPointsNext(number)
 		return
 	end
 
-% Если выбирается отрицательное число новых точек контура
+% Р•СЃР»Рё РІС‹Р±РёСЂР°РµС‚СЃСЏ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ С‡РёСЃР»Рѕ РЅРѕРІС‹С… С‚РѕС‡РµРє РєРѕРЅС‚СѓСЂР°
 	if number < 1
 		fprintf ('Enter a positive number!\n');
 		return
 	end
 
-% Если выбирается последняя точка контура
+% Р•СЃР»Рё РІС‹Р±РёСЂР°РµС‚СЃСЏ РїРѕСЃР»РµРґРЅСЏСЏ С‚РѕС‡РєР° РєРѕРЅС‚СѓСЂР°
 numPoints = [ConStruct.id];
 
 	if Cart == max(numPoints)
@@ -29,7 +29,7 @@ numPoints = [ConStruct.id];
 	ConStructTail = ConStruct(PointId+1:end);
 
     for i = 1:numel(ConStructTail)
-		%Сдвигаем индексы хвостовой части на количество добавляемых точек
+		%РЎРґРІРёРіР°РµРј РёРЅРґРµРєСЃС‹ С…РІРѕСЃС‚РѕРІРѕР№ С‡Р°СЃС‚Рё РЅР° РєРѕР»РёС‡РµСЃС‚РІРѕ РґРѕР±Р°РІР»СЏРµРјС‹С… С‚РѕС‡РµРє
 		ConStructTail(i).id = ConStructTail(i).id+number;
     end
     % NewPoints = [];
@@ -37,13 +37,13 @@ numPoints = [ConStruct.id];
 
 	ConStruct = [ConStructHead NewPoints ConStructTail];
 
-	refreshView(); % Обновляем вид
+	refreshView(); % РћР±РЅРѕРІР»СЏРµРј РІРёРґ
 end
 
 function NewPoints = evalNewPointsData(HeadLast, TailFirst, number)
 	% global ConStruct;
 
-	% Здесь фокус в том, чтобы не забыть начальную и конечную точки при использовании linspace
+	% Р—РґРµСЃСЊ С„РѕРєСѓСЃ РІ С‚РѕРј, С‡С‚РѕР±С‹ РЅРµ Р·Р°Р±С‹С‚СЊ РЅР°С‡Р°Р»СЊРЅСѓСЋ Рё РєРѕРЅРµС‡РЅСѓСЋ С‚РѕС‡РєРё РїСЂРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё linspace
 	if HeadLast.Z~=TailFirst.Z
 		tempZR(:, 1) = linspace(HeadLast.Z, TailFirst.Z, number+2);
 		newZR(:, 1) = tempZR(2:end-1, 1);
@@ -75,7 +75,7 @@ function NewPoints = evalNewPointsData(HeadLast, TailFirst, number)
 		NPoint.Phi = newPhi(i);
 		
 		NPoint.prev = NPoint.id - 1;
-		% новые точки не могут выйти за границы HeadLast-TailFirst
+		% РЅРѕРІС‹Рµ С‚РѕС‡РєРё РЅРµ РјРѕРіСѓС‚ РІС‹Р№С‚Рё Р·Р° РіСЂР°РЅРёС†С‹ HeadLast-TailFirst
 
 		NPoint.next = NPoint.id + 1;
 

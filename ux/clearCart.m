@@ -1,6 +1,6 @@
-% Очистить корзину
+% РћС‡РёСЃС‚РёС‚СЊ РєРѕСЂР·РёРЅСѓ
 function clearCart()
 	global Cart;
 	Cart = [];
-	refreshView(); % Обновляем вид
+	refreshView(); % РћР±РЅРѕРІР»СЏРµРј РІРёРґ
 end
