@@ -1,17 +1,19 @@
 function savem()
+global ConStruct
+global Colors
 
-prompt = 'Give me name\n';
+prompt = 'Give me the name\n';
 
-name = input(prompt, 's');
+filename = input(prompt, 's');
 
-save_txt = ['save ',name];
+% save_str = ['save ' filename];
 
-eval(save_txt);
+eval(sprintf('save %s ConStruct Colors',filename));
 
-move_txt = ['movefile ', name '.mat', ' ../muxi/projects'];
+% move_str = ['movefile ' filename '.mat' ' ./io'];
 
-eval(move_txt);
+eval(sprintf('movefile %s.mat ./saves', filename));
 
-fprintf('Your file save as %s \n', name);
+fprintf('Your file saved as "%s.mat"\nin "muxi/saves/" subfolder \n', filename);
 
 end
