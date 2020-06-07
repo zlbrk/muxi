@@ -9,7 +9,7 @@ aliases;
 % Инициализация файловой системы проекта
 opath = path; % old path
 workdir = pwd;
-muxiFS = sprintf('%s; ux; render; bin; io; TEST/IN;', workdir);
+muxiFS = sprintf('%s; ux; render; bin; io; saves; TEST/IN;', workdir);
 % разделяем строку с описанием файловой системы на отдельные поддиректории
 subdirs = split(muxiFS); 
 % создаём поддиректории, если они не существуют (если нет дескрипторов типа folder (7) с именем поддиректории)
