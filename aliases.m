@@ -1,6 +1,6 @@
 % Это типа набор псевдонимов функций, реализации которых раскиданы по директориям
 
-refreshView = @() refreshView();
+refView = @() refreshView();
 pp = @(Ids) pickPoints(Ids);
 dp = @(Ids) dropPoints(Ids);
 delp = @() deletePoints(); % команда специально длиннее, чтобы нельзя было по ошибке её ввести
