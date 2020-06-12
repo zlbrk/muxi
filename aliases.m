@@ -5,6 +5,7 @@ pp = @(Ids) pickPoints(Ids);
 dp = @(Ids) dropPoints(Ids);
 delp = @() deletePoints(); % команда специально длиннее, чтобы нельзя было по ошибке её ввести
 an = @(num) addPointsNext(num);
+ff = @(off_mm) forkNextPoint(off_mm);
 cc = @() clearCart();
 mv = @(dz, dr) movePoints(dz, dr);
 tm = @() toggleMesh();
