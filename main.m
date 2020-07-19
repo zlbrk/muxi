@@ -18,7 +18,7 @@ for i=2:numel(subdirs)
 	if exist(subdir(1:end-1),'dir') ~= 7
 		% subdir(1:end-1) % вывод имени поддиректории для отладки
 		mkdir(subdir(1:end-1));
-	end
+    end
 end
 path(opath, muxiFS); % new path
 clear opath;
@@ -27,7 +27,7 @@ global Colors;
   Colors.Void = [220, 220, 220]/255;
   Colors.PointIDs = [220, 220, 220]/255;
   Colors.Points = [25, 100, 150]/255;
-  Colors.Picked = [240, 20, 240]/255;
+  Colors.Picked = [180, 0, 135]/255;
   Colors.Cathode = [242, 20, 140]/255;
   Colors.Mesh = [140 140 130]/255;
 
