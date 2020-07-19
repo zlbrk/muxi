@@ -2,10 +2,10 @@
  
 In its current stage muxi provides basic preprocessing capabilities, such as defining electron gun outlines as structures, containing outline key points with attributes for point adjacency tracking and electrostatic potential definition.
 
-main.m -- contains basic electron gun (EGun) model definition and color presets. This is an entry point of the program. You must call this script typing in Matlab command window:  
+main.m &mdash; contains basic electron gun (EGun) model definition and color presets. This is an entry point of the program. You must call this script typing in Matlab command window:  
 `>> main`
 
-aliases.m -- contains function handles definitions, which serve as API shortcuts and can be used interactively in Matlab's session.
+aliases.m &mdash; contains function handles definitions, which serve as API shortcuts and can be used interactively in Matlab's session.
 
 ux/ directory contains files, which implement muxi's API.
 
