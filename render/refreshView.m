@@ -5,8 +5,8 @@ function refreshView()
 	
 	cla(); % очищаем оси
 	drawVoid(); % рисуем контур
-	drawCathode(); % рисуем катод
  	showBC(); % отображаем граничные условия
+	drawCathode(); % рисуем катод
 	drawPoints(); % рисуем все точки
 	if ~isempty(Cart)
 		highlightCart(); % подсвечиваем выбранные точки
