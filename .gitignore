@@ -1,4 +1,3 @@
-/stash
-/TEST
-*.exe
-*.mat
+*
+!.gitignore
+!*.m
