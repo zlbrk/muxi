@@ -7,7 +7,7 @@ main.m &mdash; contains basic electron gun (EGun) model definition and color pre
 
 aliases.m &mdash; contains function handles definitions, which serve as API shortcuts and can be used interactively in Matlab's session.
 
-ux/ directory contains files, which implement muxi's API.
+**ux/** directory contains files, which implement muxi's API.
 
 
 ## Examples
