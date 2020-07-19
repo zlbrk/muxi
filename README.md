@@ -13,7 +13,9 @@ aliases.m &mdash; contains function handles definitions, which serve as API shor
 ## Examples
 
 **Example 1** To pick points 4 and 5 you have to type command:
+
 `>> pp([4 5])`
+
 It calls *pickPoints(Ids)* function and adds provided indices of  to the Cart, so you can interact with corresponding points.
 
 **Example 2** To move picked points to the new position (e.g. rise picked points position by 0.5 mm) you need to call movePoints(dz, dr) function. You can do this by typing:
