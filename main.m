@@ -18,7 +18,7 @@ for i=2:numel(subdirs)
 	if exist(subdir(1:end-1),'dir') ~= 7
 		% subdir(1:end-1) % вывод имени поддиректории для отладки
 		mkdir(subdir(1:end-1));
-    end
+   	end
 end
 path(opath, muxiFS); % new path
 clear opath;
