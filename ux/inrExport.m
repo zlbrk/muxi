@@ -1,4 +1,4 @@
-function createFile()
+function inrExport()
 
 global ConStruct;
 global Cathode;
@@ -42,8 +42,6 @@ fprintf(fid, '1.0E10\n\n');
 %записываем значение потенциала в точках
 %---------------------------------------
 u = unique(contFI);
-% L = length(find(contFI==u(1)))
-% pause
 
 fprintf(fid, 'contFI\n');
 for i=1:numel(u);
