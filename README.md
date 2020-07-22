@@ -39,7 +39,7 @@ To drop previously picked points call *dropPoints(Ids)* function with:
 
 It will clear the Cart, so you could pick others.
 
-**Example 4.** 
+**Example 4** 
 
 To drop all previously picked points call *clearCart()* function with:
 
