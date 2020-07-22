@@ -18,6 +18,7 @@ Hitting **Return** runs the main process. You should see a figure with sample el
 ## Examples
 
 **Example 1** 
+
 To pick points 4 and 5 you have to type command:
 
 `>> pp([4 5])`
@@ -25,11 +26,13 @@ To pick points 4 and 5 you have to type command:
 It calls *pickPoints(Ids)* function and adds provided indices of  to the Cart, so you can interact with corresponding points.
 
 **Example 2** 
+
 To move picked points to the new position (e.g. rise picked points position by 0.5 mm) you need to call *movePointsRelative(dz, dr)* function. You can do this by typing:
 
 `>> mvr(0, 0.5)`
 
 **Example 3** 
+
 To drop previously picked points call *dropPoints(Ids)* function with:
 
 `>> dp([4 5])`
@@ -37,6 +40,7 @@ To drop previously picked points call *dropPoints(Ids)* function with:
 It will clear the Cart, so you could pick others.
 
 **Example 4.** 
+
 To drop all previously picked points call *clearCart()* function with:
 
 `>> cc()`
