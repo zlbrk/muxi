@@ -1,6 +1,8 @@
 % Это типа набор псевдонимов функций, реализации которых раскиданы по директориям
 
 refView = @() refreshView();
+undo = @() undoLastCommand();
+
 pp = @(Ids) pickPoints(Ids);
 dp = @(Ids) dropPoints(Ids);
 delp = @() deletePoints(); % команда специально длиннее, чтобы нельзя было по ошибке её ввести
@@ -10,11 +12,18 @@ fb = @(off_mm) forkBackward(off_mm);
 sm = @(filename) saveModel(filename);
 lm = @(filename) loadModel(filename);
 cc = @() clearCart();
-mv = @(dz, dr) movePoints(dz, dr);
+
+spp = @(Znew, Rnew) setPointPosition(Znew, Rnew);
+mvr = @(dz, dr) movePointsRelative(dz, dr);
+
+apz = @(AlignPointId) alignPointsZ(AlignPointId);
+apr = @(AlignPointId) alignPointsR(AlignPointId);
+spz = @(Znew) setPointsZ(Znew);
+spr = @(Rnew) setPointsR(Rnew);
+
 tm = @() toggleMesh();
 sv = @(V) setVoltage(V);
 cf = @() createFile();
-
 
 initFigure = @(ZMIN, ZMAX, RMIN, RMAX) initFigure(ZMIN, ZMAX, RMIN, RMAX);
 drawVoid = @() drawVoid();

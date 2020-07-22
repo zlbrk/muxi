@@ -9,7 +9,7 @@ aliases;
 % Инициализация файловой системы проекта
 opath = path; % old path
 workdir = pwd;
-muxiFS = sprintf('%s; ux; render; bin; io; saves; TEST/IN; debug;', workdir);
+muxiFS = sprintf('%s; ux; render; bin; io; saves; TEST/IN; debug; temp;', workdir);
 % разделяем строку с описанием файловой системы на отдельные поддиректории
 subdirs = split(muxiFS); 
 % создаём поддиректории, если они не существуют (если нет дескрипторов типа folder (7) с именем поддиректории)
@@ -109,4 +109,8 @@ global Mesh;
 initFigure(ZMIN, ZMAX, RMIN, RMAX);
 % pause
 refreshView();
+
+%% Создание чекпойнта и начало включение журналирования
+setCheckpoint();
+evalc('diary temp/cmd.log');
 		
