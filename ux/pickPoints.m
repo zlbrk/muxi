@@ -1,5 +1,5 @@
 function pickPoints(PointIds)
-% добавление точек в корзину
+% РґРѕР±Р°РІР»РµРЅРёРµ С‚РѕС‡РµРє РІ РєРѕСЂР·РёРЅСѓ
 	global Cart;
 	global ConStruct;
 
@@ -15,6 +15,6 @@ function pickPoints(PointIds)
 		end
 	end
 
-	refreshView(); % Обновляем вид
+	refreshView(); % РћР±РЅРѕРІР»СЏРµРј РІРёРґ
 end
 

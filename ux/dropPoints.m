@@ -1,5 +1,5 @@
 function dropPoints_(PointIds)
-% удаление точек из корзины
+% СѓРґР°Р»РµРЅРёРµ С‚РѕС‡РµРє РёР· РєРѕСЂР·РёРЅС‹
 	global Cart;
 	global ConStruct;
 
@@ -15,6 +15,6 @@ function dropPoints_(PointIds)
 		Cart(id)=[];
 	end
 	
-	refreshView(); % Обновляем вид
+	refreshView(); % РћР±РЅРѕРІР»СЏРµРј РІРёРґ
 end
 
