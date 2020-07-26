@@ -1,21 +1,23 @@
 function deletePoints()
 % удаление точек из контура
 % надо сделать аргумент необязательным
-	global Cart;
-	global ConStruct;
+global Cart;
+global ConStruct;
 
-	if numel(Cart)< 1
-		fprintf('At least one point should be selected!\n');
-		return
-	else
-		sortedCart = sort(Cart,'descend'); % Выбранные точки отсортированы в нисходящем порядке
-		
-		for i = sortedCart
-			delPoint(i);
-		end
+if numel(Cart)< 1
+	fprintf('At least one point should be selected!\n');
+	return
+else
+	sortedCart = sort(Cart,'descend'); % Выбранные точки отсортированы в нисходящем порядке
+	
+	for i = sortedCart
+		delPoint(i);
 	end
-	clearCart();
-	refreshView(); % Обновляем вид
+end
+clearCart();
+
+setCheckpoint(); % Создаём чекпойнт
+refreshView(); % Обновляем вид
 
 function delPoint(id)
 

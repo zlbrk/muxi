@@ -1,17 +1,16 @@
-function restoreCheckpoint()
+% Загружаем конкретное состояние модели
+function restoreCheckpoint(State)
 global ConStruct
-global Colors
+global ModelStateCounter
 
-filename = 'temp/checkpoint.mat';
-% TODO
-% - Проверка на наличие файла в директории saves
-% - Вывод подсказки, если файл не найден
-% - Задача со звёздочкой: вывод подсказки, если функция вызвана без аргументов, 
-%   Подсказка: нужно использовать varargin (в хелпе есть классный пример).
+filename = sprintf('temp/state_%d', State);
 
-load(filename, 'ConStruct', 'Colors');
+load(filename, 'ConStruct', 'ModelStateCounter');
+
 clearCart();
 
-fprintf('Checkpoint successfully restored \n');
+refreshView();
+
+fprintf('Checkpoint successfully restored!\n');
 
 end

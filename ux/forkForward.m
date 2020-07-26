@@ -29,6 +29,7 @@ numPoints = [ConStruct.id];
 	% Перемещаем дубликат на заданное расстояние
 	movePoints(dz, dr);
 
+	setCheckpoint(); % Создаём чекпойнт
 	refreshView(); % Обновляем вид
 
 end

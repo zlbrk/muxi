@@ -16,5 +16,6 @@ function setPointPosition(Znew, Rnew)
 		end
 	end
 
+	setCheckpoint(); % Создаём чекпойнт
 	refreshView(); % Обновляем вид
 end

@@ -1,11 +1,13 @@
 function setCheckpoint()
-global ConStruct
-global Colors
+global ConStruct;
+global ModelStateCounter;
 
-filename = ['temp/checkpoint'];
+ModelStateCounter = ModelStateCounter+1; % увеличиваем счётчик состояний
 
-save(filename, 'ConStruct', 'Colors');
+filename = sprintf('temp/state_%d', ModelStateCounter); % определяем имя нового состояния
 
-fprintf("Checkpoint successfully created!\n");
+save(filename, 'ConStruct', 'ModelStateCounter'); % сохраняем чекпойнт
+
+fprintf('Checkpoint #%d successfully created!\n', ModelStateCounter); % сообщаем об успешном завершении операции
 
 end

@@ -1,11 +1,11 @@
-% Установить одинаковую Z-координату для всех выбранных точек
-function setPointsZ(Znew)
+% Переместить выбранные точки относительно их текущего положения по R
+function movePointsZ(dz)
 	global Cart;
 	global ConStruct;
 
 	if ~isempty(Cart)
 		for i = Cart
-			ConStruct(i).Z = Znew;
+			ConStruct(i).Z = ConStruct(i).Z + dz;
 			ConStruct(i).R = ConStruct(i).R;
 		end
 	else

@@ -37,6 +37,7 @@ numPoints = [ConStruct.id];
 
 	ConStruct = [ConStructHead NewPoints ConStructTail];
 
+	setCheckpoint(); % Создаём чекпойнт
 	refreshView(); % Обновляем вид
 end
 

@@ -1,6 +1,5 @@
 function loadModel(filename)
 global ConStruct
-global Colors
 
 filename = ['saves/' filename];
 % TODO
@@ -9,7 +8,7 @@ filename = ['saves/' filename];
 % - Задача со звёздочкой: вывод подсказки, если функция вызвана без аргументов, 
 %   Подсказка: нужно использовать varargin (в хелпе есть классный пример).
 
-load(filename, 'ConStruct', 'Colors');
+load(filename, 'ConStruct');
 clearCart();
 
 fprintf('Your model stored in "muxi/saves/%s.mat" file\n successfully loaded \n', filename);

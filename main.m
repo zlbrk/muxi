@@ -9,7 +9,8 @@ aliases;
 % Инициализация файловой системы проекта
 opath = path; % old path
 workdir = pwd;
-muxiFS = sprintf('%s; ux; render; bin; io; saves; TEST/IN; debug; temp;', workdir);
+muxiFS = sprintf('%s; ux; render; bin; saves', workdir);
+muxiFS = sprintf('%s; debug; drivers/comi; temp;', muxiFS);
 % разделяем строку с описанием файловой системы на отдельные поддиректории
 subdirs = split(muxiFS); 
 % создаём поддиректории, если они не существуют (если нет дескрипторов типа folder (7) с именем поддиректории)
@@ -22,6 +23,8 @@ for i=2:numel(subdirs)
 end
 path(opath, muxiFS); % new path
 clear opath;
+
+
 
 global Colors;
   Colors.Void = [220, 220, 220]/255;
@@ -107,10 +110,12 @@ global Mesh;
   Mesh.stepsR = [151 100];
 
 initFigure(ZMIN, ZMAX, RMIN, RMAX);
-% pause
-refreshView();
 
-%% Создание чекпойнта и начало включение журналирования
-setCheckpoint();
-evalc('diary temp/cmd.log');
-		
+%% Журналирование
+delete 'temp/*' % очистка временных файлов
+
+global ModelStateCounter;
+  ModelStateCounter = 0; % инициализация счётчика состояний модели
+
+setCheckpoint(); % создаём чекпойнт
+refreshView(); % обновляем вид

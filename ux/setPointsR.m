@@ -12,5 +12,6 @@ function setPointsR(Rnew)
 		fprintf('Cart is empty. Nothing to move!\n');
 	end
 
+	setCheckpoint(); % Создаём чекпойнт
 	refreshView(); % Обновляем вид
 end
