@@ -27,7 +27,7 @@ numPoints = [ConStruct.id];
 	clearCart();
 	pickPoints(PointId+1);
 	% Перемещаем дубликат на заданное расстояние
-	movePoints(dz, dr);
+	movePointsZR(dz, dr);
 
 	setCheckpoint(); % Создаём чекпойнт
 	refreshView(); % Обновляем вид

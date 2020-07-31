@@ -29,7 +29,7 @@ numPoints = numel([ConStruct.id]);
 	% Выбирать дубликат не требуется, поскольку он уже выбран.
 
 	% Перемещаем дубликат на заданное расстояние
-	movePoints(dz, dr);
+	movePointsZR(dz, dr);
 
 	setCheckpoint(); % Создаём чекпойнт
 	refreshView(); % Обновляем вид
