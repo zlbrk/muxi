@@ -36,6 +36,8 @@ global Colors;
 
 global PCart;
   PCart = []; % Корзинка для точек
+global SCart;
+  SCart = []; % Корзинка для сегментов (сторон)
 
 global Cathode; 
   Cathode = []; % Катод как структура
