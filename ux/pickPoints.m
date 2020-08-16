@@ -1,6 +1,6 @@
 function pickPoints(PointIds)
 % добавление точек в корзину
-	global Cart;
+	global PCart;
 	global ConStruct;
 
 	for i = PointIds
@@ -8,10 +8,10 @@ function pickPoints(PointIds)
 			fprintf('Point #%d does not exist!\n',i);
 			continue
 		end
-		if ~ismember(i, Cart)
-			Cart = [Cart i];
+		if ~ismember(i, PCart)
+			PCart = [PCart i];
 		else
-			fprintf('Point #%d is already in the Cart!\n', i);
+			fprintf('Point #%d is already in the PCart!\n', i);
 		end
 	end
 

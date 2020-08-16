@@ -1,15 +1,15 @@
 % Установить одинаковую Z-координату для всех выбранных точек
 function setPointsZ(Znew)
-	global Cart;
+	global PCart;
 	global ConStruct;
 
-	if ~isempty(Cart)
-		for i = Cart
+	if ~isempty(PCart)
+		for i = PCart
 			ConStruct(i).Z = Znew;
 			ConStruct(i).R = ConStruct(i).R;
 		end
 	else
-		fprintf('Cart is empty. Nothing to move!\n');
+		fprintf('PCart is empty. Nothing to move!\n');
 	end
 
 	setCheckpoint(); % Создаём чекпойнт

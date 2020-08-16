@@ -1,6 +1,6 @@
 % Перерисовка рабочего вида
 function refreshView()
-	global Cart;
+	global PCart;
 	global GA;
 	global ModelStateCounter;
 	
@@ -9,8 +9,8 @@ function refreshView()
  	showBC(); % отображаем граничные условия
 	drawCathode(); % рисуем катод
 	drawPoints(); % рисуем все точки
-	if ~isempty(Cart)
-		highlightCart(); % подсвечиваем выбранные точки
+	if ~isempty(PCart)
+		highlightPCart(); % подсвечиваем выбранные точки
 	end
 	showPointIDs(); % Выводим номера точек
 

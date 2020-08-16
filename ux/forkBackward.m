@@ -2,10 +2,10 @@ function forkBackward(off_mm)
 % форк выбранной точки по направлению 
 % к предыдущей
 
-	global Cart;
+	global PCart;
 	global ConStruct;
 
-	if numel(Cart)> 1
+	if numel(PCart)> 1
 		fprintf('Only one point should be selected!\n');
 		return
 	end
@@ -13,12 +13,12 @@ function forkBackward(off_mm)
 % Если выбирается последняя точка контура
 numPoints = numel([ConStruct.id]);
 
-	if Cart == 1
+	if PCart == 1
 		fprintf('First point selected! Try another point in range: [2 %d]\n',numPoints);
 		return
 	end
 
-	PointId = Cart;
+	PointId = PCart;
 	% Определяем вектор сдвига
 	[dz, dr] = dZdR(PointId, off_mm);
 

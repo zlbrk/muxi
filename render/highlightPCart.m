@@ -1,12 +1,12 @@
-function highlightCart()
-	global Cart;
+function highlightPCart()
+	global PCart;
 	global ConStruct;
 	global Colors;
-	if ~isempty(Cart)
-		for i = Cart
+	if ~isempty(PCart)
+		for i = PCart
 			drawPoint(ConStruct(i), 's', Colors.Picked, 16); % подсвечиваем выбранные точки
 		end
 	else
-		fprintf('Cart is empty. Nothing to highlight!\n');
+		fprintf('PCart is empty. Nothing to highlight!\n');
 	end
 end

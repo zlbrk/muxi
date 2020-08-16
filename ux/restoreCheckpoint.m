@@ -7,7 +7,7 @@ filename = sprintf('temp/state_%d', State);
 
 load(filename, 'ConStruct', 'ModelStateCounter');
 
-clearCart();
+clearPCart();
 
 refreshView();
 

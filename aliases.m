@@ -13,7 +13,7 @@ ff = @(off_mm) forkForward(off_mm);
 fb = @(off_mm) forkBackward(off_mm);
 sm = @(filename) saveModel(filename);
 lm = @(filename) loadModel(filename);
-cc = @() clearCart();
+cpc = @() clearPCart();
 
 spp = @(Znew, Rnew) setPointPosition(Znew, Rnew);
 mvr = @(dr) movePointsR(dr);

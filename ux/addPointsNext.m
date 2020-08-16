@@ -1,10 +1,10 @@
 function addPointsNext(number)
 % добавление точек в контур
 % надо сделать аргумент необязательным
-	global Cart;
+	global PCart;
 	global ConStruct;
 
-	if numel(Cart)> 1
+	if numel(PCart)> 1
 		fprintf('Only one point should be selected!\n');
 		return
 	end
@@ -18,12 +18,12 @@ function addPointsNext(number)
 % Если выбирается последняя точка контура
 numPoints = [ConStruct.id];
 
-	if Cart == max(numPoints)
+	if PCart == max(numPoints)
 		fprintf('Last point selected!\n');
 		return
 	end
 
-	PointId = Cart;
+	PointId = PCart;
 
 	ConStructHead = ConStruct(1:PointId);
 	ConStructTail = ConStruct(PointId+1:end);

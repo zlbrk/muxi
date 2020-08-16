@@ -2,10 +2,10 @@ function forkForward(off_mm)
 % форк выбранной точки по направлению 
 % к следующей
 
-	global Cart;
+	global PCart;
 	global ConStruct;
 
-	if numel(Cart)> 1
+	if numel(PCart)> 1
 		fprintf('Only one point should be selected!\n');
 		return
 	end
@@ -13,18 +13,18 @@ function forkForward(off_mm)
 % Если выбирается последняя точка контура
 numPoints = [ConStruct.id];
 
-	if Cart == max(numPoints)
+	if PCart == max(numPoints)
 		fprintf('Last point selected! Try another point in range: [1 %d]\n',numPoints-1);
 		return
 	end
 
-	PointId = Cart;
+	PointId = PCart;
 	% Определяем вектор сдвига
 	[dz, dr] = dZdR(PointId, off_mm);
 	% Дублируем выбранную точку
 	makeDuplicate(PointId);
 	% Выбираем дубликат
-	clearCart();
+	clearPCart();
 	pickPoints(PointId+1);
 	% Перемещаем дубликат на заданное расстояние
 	movePointsZR(dz, dr);

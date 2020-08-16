@@ -34,8 +34,8 @@ global Colors;
   Colors.Cathode = [242, 20, 140]/255;
   Colors.Mesh = [140 140 130]/255;
 
-global Cart;
-  Cart = []; % Корзинка для точек
+global PCart;
+  PCart = []; % Корзинка для точек
 
 global Cathode; 
   Cathode = []; % Катод как структура

@@ -1,14 +1,14 @@
 function setVoltage(V)
     global ConStruct;
-    global Cart;
+    global PCart;
     
-    for i = Cart;
+    for i = PCart;
         ConStruct(i).Voltage = V;
     end
 
     U0 = max([ConStruct.Voltage]); % Берём максимальное значение напряжения из доступных
     setPhi(U0);
-    clearCart();
+    clearPCart();
    end
 
 function setPhi(U0)

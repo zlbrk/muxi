@@ -1,6 +1,6 @@
 function dropPoints_(PointIds)
 % удаление точек из корзины
-	global Cart;
+	global PCart;
 	global ConStruct;
 
 	for i = PointIds
@@ -8,11 +8,11 @@ function dropPoints_(PointIds)
 			fprintf('Point #%d does not exist!\n',i);
 			continue
 		end
-		if ~ismember(i, Cart)
-			fprintf('Point #%d is not in the Cart!\n', i);
+		if ~ismember(i, PCart)
+			fprintf('Point #%d is not in the PCart!\n', i);
 		end
-		id = find(Cart==i);
-		Cart(id)=[];
+		id = find(PCart==i);
+		PCart(id)=[];
 	end
 	
 	refreshView(); % Обновляем вид

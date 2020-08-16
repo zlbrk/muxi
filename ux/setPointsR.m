@@ -1,15 +1,15 @@
 % Установить одинаковую R-координату для всех выбранных точек
 function setPointsR(Rnew)
-	global Cart;
+	global PCart;
 	global ConStruct;
 
-	if ~isempty(Cart)
-		for i = Cart
+	if ~isempty(PCart)
+		for i = PCart
 			ConStruct(i).Z = ConStruct(i).Z;
 			ConStruct(i).R = Rnew;
 		end
 	else
-		fprintf('Cart is empty. Nothing to move!\n');
+		fprintf('PCart is empty. Nothing to move!\n');
 	end
 
 	setCheckpoint(); % Создаём чекпойнт
