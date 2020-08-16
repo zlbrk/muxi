@@ -1,6 +1,7 @@
 % Перерисовка рабочего вида
 function refreshView()
 	global PCart;
+	global SCart;
 	global GA;
 	global ModelStateCounter;
 	
@@ -12,6 +13,10 @@ function refreshView()
 	if ~isempty(PCart)
 		highlightPCart(); % подсвечиваем выбранные точки
 	end
+	if ~isempty(SCart)
+		highlightSCart(); % подсвечиваем выбранные сегменты
+	end
+
 	showPointIDs(); % Выводим номера точек
 
 	xlim(GA.XLim);

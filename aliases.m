@@ -6,14 +6,17 @@ undo = @() undoLastCommand();
 redo = @() redoLastCommand();
 
 pp = @(Ids) pickPoints(Ids);
+ps = @(Ids) pickSides(Ids);
 dp = @(Ids) dropPoints(Ids);
+ds = @(Ids) dropSides(Ids);
 delp = @() deletePoints(); % команда специально длиннее, чтобы нельзя было по ошибке её ввести
 an = @(num) addPointsNext(num);
 ff = @(off_mm) forkForward(off_mm);
 fb = @(off_mm) forkBackward(off_mm);
 sm = @(filename) saveModel(filename);
 lm = @(filename) loadModel(filename);
-cpc = @() clearPCart();
+cpp = @() clearPCart(); % Clear all picked points
+cps = @() clearSCart(); % Clear all picked sides
 
 spp = @(Znew, Rnew) setPointPosition(Znew, Rnew);
 mvr = @(dr) movePointsR(dr);
