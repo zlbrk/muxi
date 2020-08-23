@@ -24,8 +24,6 @@ end
 path(opath, muxiFS); % new path
 clear opath;
 
-
-
 global Colors;
   Colors.Void = [220, 220, 220]/255;
   Colors.PointIDs = [220, 220, 220]/255;
@@ -55,7 +53,7 @@ global Sides;
 % Определяем координаты точек контура
 ZR(:, 1) = [1., 1., 1.32, 1.32, 1.62, 1.62, 5.27, 5.27, 45, 45];
 ZR(:, 2) = [1.E-8, 7, 7, 1.2, 1.2, 7, 7, 0.9, 0.9, 0];
-ZRpts = numel(ZR(:, 1)); % Количество точек в контуре
+ZRpts = numel(ZR(:, 1)); % Количество точек в контуре (оно же количество сегментов)
 
 % Инициализируем объект-контур
 for i = 1:ZRpts
@@ -84,6 +82,14 @@ for i = 1:ZRpts
 	s.EP = i+1; % конечная точка сегмента (End point)
 	if s.EP > ZRpts
 		s.EP = 1; % замыкаем контур
+	end
+	s.prev = s.id - 1;
+	if s.prev < 1
+		s.prev = ZRpts;
+	end
+	s.next = s.id + 1;
+	if s.next > ZRpts
+		s.next = 1;
 	end
 	Sides = [Sides s];
 

@@ -13,6 +13,12 @@ function dropSides(SideIds)
 		end
 		id = find(SCart==i);
 		SCart(id)=[];
+		if ~ismember(Sides(i).next, SCart)
+			dropPoints(Sides(i).next);
+		end
+		if ~ismember(Sides(i).prev, SCart)
+			dropPoints(Sides(i).id);
+		end
 	end
 	
 	refreshView(); % Обновляем вид
