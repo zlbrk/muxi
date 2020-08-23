@@ -1,7 +1,7 @@
 % Основной инструмент прямого редактирования контура 
 function pullPush(off_mm)
 	global SCart; % Нам понадобятся выбранные стороны
-	% global PCart; % Нам понадобится корзинка с точками стороны
+	global Sides; % Нам не только выбранные стороны
 	global ConStruct; % И координаты точек
 
 	if isempty(SCart)
@@ -27,6 +27,21 @@ function pullPush(off_mm)
 		pickSides(sortedPointsToFork(1)+1); % Выбираем новую сторону
 		PD = off_mm*directions(:,1); % Points displacement
 		movePointsZR(PD(1),PD(2));
+	end
+
+	if pointsToFork == Sides(SCart).SP
+		% Контравариантный случай (левый нижний угол)
+		clearCarts();
+		pickPoints(sortedPointsToFork(1));
+		forkForward(0); % Дублируем начальную точку сегмента
+		SPD = off_mm*directions(:,1); % Starting Point Displacement
+		movePointsZR(SPD(1),SPD(2)); % Перемещаем форкнутую точку по нормали
+		
+		clearCarts();
+		pickPoints(sortedPointsToFork(1)+2); % Выбираем угловую точку (теперь через одну после начальной)
+		EPD = off_mm*directions(:,2); % Ending Point Displacement
+		movePointsZR(EPD(1),EPD(2)); % Перемещаем угловую точку против тангенциали
+
 	end
 
 	setCheckpoint(); % Создаём чекпойнт
