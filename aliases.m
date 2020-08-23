@@ -15,6 +15,8 @@ ff = @(off_mm) forkForward(off_mm);
 fb = @(off_mm) forkBackward(off_mm);
 sm = @(filename) saveModel(filename);
 lm = @(filename) loadModel(filename);
+pl = @(off_mm) pullPush(off_mm);
+
 cpp = @() clearPCart(); % Clear all picked points
 cps = @() clearSCart(); % Clear all picked sides and points
 cc = @() clearCarts(); % Clear all picked sides
