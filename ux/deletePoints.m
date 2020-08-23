@@ -15,7 +15,7 @@ else
 	end
 end
 clearPCart();
-
+refreshSides();
 setCheckpoint(); % Создаём чекпойнт
 refreshView(); % Обновляем вид
 

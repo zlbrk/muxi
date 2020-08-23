@@ -16,7 +16,8 @@ fb = @(off_mm) forkBackward(off_mm);
 sm = @(filename) saveModel(filename);
 lm = @(filename) loadModel(filename);
 cpp = @() clearPCart(); % Clear all picked points
-cps = @() clearSCart(); % Clear all picked sides
+cps = @() clearSCart(); % Clear all picked sides and points
+cc = @() clearCarts(); % Clear all picked sides
 
 spp = @(Znew, Rnew) setPointPosition(Znew, Rnew);
 mvr = @(dr) movePointsR(dr);

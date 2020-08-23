@@ -30,7 +30,7 @@ numPoints = numel([ConStruct.id]);
 
 	% Перемещаем дубликат на заданное расстояние
 	movePointsZR(dz, dr);
-
+	refreshSides(); % Обновляем структуру сегментов
 	% setCheckpoint(); % Создаём чекпойнт
 	refreshView(); % Обновляем вид
 
