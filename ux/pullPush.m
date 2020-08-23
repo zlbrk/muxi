@@ -41,6 +41,19 @@ function pullPush(off_mm)
 		pickPoints(sortedPointsToFork(1)+2); % Выбираем угловую точку (теперь через одну после начальной)
 		EPD = off_mm*directions(:,2); % Ending Point Displacement
 		movePointsZR(EPD(1),EPD(2)); % Перемещаем угловую точку против тангенциали
+	
+	elseif pointsToFork == Sides(SCart).EP
+		% Ковариантный случай (правый нижний угол)
+		clearCarts();
+		pickPoints(sortedPointsToFork(1));
+		forkBackward(0); % Дублируем конечную точку сегмента
+		SPD = off_mm*directions(:,2); % Ending Point Displacement
+		movePointsZR(SPD(1),SPD(2)); % Угловую точку по тангенциали
+		
+		clearCarts();
+		pickPoints(sortedPointsToFork(1)-1); % Выбираем угловую точку (предыдущая от конечной, форкнутой вперёд)
+		EPD = off_mm*directions(:,1); % Starting Point Displacement
+		movePointsZR(EPD(1),EPD(2)); % Перемещаем угловую точку против тангенциали
 
 	end
 
@@ -75,6 +88,10 @@ function [pointsToFork, directions] = whichPointsToFork(sNumber)
 		pointsToFork = [Sides(sNumber).EP];
 		PPD = getTangential(P); % Prev point direction
 		directions = [PPD CN];
+	elseif (PC_mod > eps) && (NC_mod > eps)
+		% Корыто
+		disp('TODO')
+
 	end
 end
 
