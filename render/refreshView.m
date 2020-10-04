@@ -6,15 +6,14 @@ function refreshView()
 	global ModelStateCounter;
 	
 	cla(); % очищаем оси
-	drawRegion(); % рисуем контур
- 	refreshSides(); % Обновляем структуру сегментов
- 	drawSides();
-	drawPoints(); % рисуем все точки
+	drawRegion(); % закращиваем регион
+ 	drawSides(); % рисуем стороны
+	drawPoints(); % рисуем точки
 	if ~isempty(PCART)
-		highlightPCart(); % подсвечиваем выбранные точки
+		highlightPCart(); % подсвечиваем выбранные точки, если они есть
 	end
 	if ~isempty(SCART)
-		highlightSCart(); % подсвечиваем выбранные сегменты
+		highlightSCart(); % подсвечиваем выбранные сегменты, если они есть
 	end
 
 	showPointIDs(); % Выводим номера точек

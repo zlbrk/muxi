@@ -11,7 +11,10 @@ filename = ['saves/' filename];
 %   Подсказка: нужно использовать varargin (в хелпе есть классный пример).
 
 load(filename, 'POINTS', 'SIDES');
+
+delete 'temp/*' % очистка временных файлов
 ModelStateCounter = 0; % инициализация счётчика состояний модели
+
 setCheckpoint(); % создаём чекпойнт
 
 clearCarts(); % умещаем модель на канве

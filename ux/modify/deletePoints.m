@@ -14,9 +14,10 @@ else
 		delPoint(i);
 	end
 end
-clearPCART();
-refreshSides();
+
+refreshSides(); % Обновляем структуру сегментов
 setCheckpoint(); % Создаём чекпойнт
+clearCarts(); % Очищаем корзинки
 refreshView(); % Обновляем вид
 
 function delPoint(id)

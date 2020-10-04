@@ -1,13 +1,14 @@
 % Загружаем конкретное состояние модели
 function restoreCheckpoint(State)
-global POINTS
-global ModelStateCounter
+global POINTS;
+global SIDES;
+global ModelStateCounter;
 
 filename = sprintf('temp/state_%d', State);
 
-load(filename, 'POINTS', 'ModelStateCounter');
+load(filename, 'POINTS', 'SIDES', 'ModelStateCounter');
 
-clearPCart();
+clearCarts();
 
 refreshView();
 

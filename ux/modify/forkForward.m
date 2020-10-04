@@ -13,10 +13,10 @@ function forkForward(off_mm)
 % Если выбирается последняя точка контура
 numPoints = [POINTS.id];
 
-	if PCART == max(numPoints)
-		fprintf('Last point selected! Try another point in range: [1 %d]\n',numPoints-1);
-		return
-	end
+	% if PCART == max(numPoints)
+	% 	fprintf('Last point selected! Try another point in range: [1 %d]\n',numPoints-1);
+	% 	return
+	% end
 
 	PointId = PCART;
 	% Определяем вектор сдвига
@@ -24,12 +24,14 @@ numPoints = [POINTS.id];
 	% Дублируем выбранную точку
 	makeDuplicate(PointId);
 	% Выбираем дубликат
-	clearPCART();
+	clearPCart();
 	pickPoints(PointId+1);
 	% Перемещаем дубликат на заданное расстояние
 	movePointsZR(dz, dr);
 	refreshSides(); % Обновляем структуру сегментов
 	% setCheckpoint(); % Создаём чекпойнт
+	
+	clearPCart(); % Убираем побочку
 	refreshView(); % Обновляем вид
 
 end
@@ -58,8 +60,15 @@ end
 
 function [dz, dr] = dZdR(PointId, off_mm)
 	global POINTS;
-	DZ = POINTS(PointId+1).Z - POINTS(PointId).Z;
-	DR = POINTS(PointId+1).R - POINTS(PointId).R;
+
+	if PointId == max([POINTS.id])
+		DZ = POINTS(1).Z - POINTS(PointId).Z;
+		DR = POINTS(1).R - POINTS(PointId).R;
+	else
+		DZ = POINTS(PointId+1).Z - POINTS(PointId).Z;
+		DR = POINTS(PointId+1).R - POINTS(PointId).R;
+	end
+	
 	vec_DZDR = [DZ DR];
 	abs_DZDR = sqrt(vec_DZDR*vec_DZDR');
 	ratio = off_mm/abs_DZDR;

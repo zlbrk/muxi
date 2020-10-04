@@ -11,7 +11,8 @@ function movePointsZ(dz)
 	else
 		fprintf('PCART is empty. Nothing to move!\n');
 	end
-
+	
+	refreshSides(); % Обновляем структуру сегментов? Нужно ли это здесь?
 	setCheckpoint(); % Создаём чекпойнт
 	refreshView(); % Обновляем вид
 end

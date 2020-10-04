@@ -11,7 +11,8 @@ function alignPointsZ(AlignPointId)
 	else
 		fprintf('PCART is empty. Nothing to move!\n');
 	end
-
+	
+	refreshSides(); % Обновляем структуру сегментов
 	setCheckpoint(); % Создаём чекпойнт
 	refreshView(); % Обновляем вид
 end
