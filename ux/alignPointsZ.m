@@ -1,15 +1,15 @@
 % Выровнять Z-координаты выбранных точек по точке с определённым номером 
 function alignPointsZ(AlignPointId)
-	global PCart;
-	global ConStruct;
+	global PCART;
+	global POINTS;
 
-	if ~isempty(PCart)
-		for i = PCart
-			ConStruct(i).Z = ConStruct(AlignPointId).Z;
-			ConStruct(i).R = ConStruct(i).R;
+	if ~isempty(PCART)
+		for i = PCART
+			POINTS(i).Z = POINTS(AlignPointId).Z;
+			POINTS(i).R = POINTS(i).R;
 		end
 	else
-		fprintf('PCart is empty. Nothing to move!\n');
+		fprintf('PCART is empty. Nothing to move!\n');
 	end
 
 	setCheckpoint(); % Создаём чекпойнт

@@ -1,15 +1,15 @@
 % Переместить выбранные точки относительно их текущего положения по R
 function movePointsZ(dz)
-	global PCart;
-	global ConStruct;
+	global PCART;
+	global POINTS;
 
-	if ~isempty(PCart)
-		for i = PCart
-			ConStruct(i).Z = ConStruct(i).Z + dz;
-			ConStruct(i).R = ConStruct(i).R;
+	if ~isempty(PCART)
+		for i = PCART
+			POINTS(i).Z = POINTS(i).Z + dz;
+			POINTS(i).R = POINTS(i).R;
 		end
 	else
-		fprintf('PCart is empty. Nothing to move!\n');
+		fprintf('PCART is empty. Nothing to move!\n');
 	end
 
 	setCheckpoint(); % Создаём чекпойнт

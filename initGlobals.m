@@ -13,7 +13,7 @@ global PCART;
 global SCART;
   SCART = []; % Корзинка для сегментов (сторон)
 
-global Points;
+global POINTS;
   POINTS = []; % Теперь ConStruct будет называться POINTS
 
 global SIDES;

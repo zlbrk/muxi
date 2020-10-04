@@ -1,25 +1,25 @@
 function pickSides(SideIds)
 % добавление точек в корзину
-	global SCart;
-	global PCart;
-	global Sides;
+	global SCART;
+	global PCART;
+	global SIDES;
 
 	for i = SideIds
-		if ~ismember(i, [Sides.id])
+		if ~ismember(i, [SIDES.id])
 			fprintf('Side #%d does not exist!\n',i);
 			continue
 		end
-		if ~ismember(i, SCart)
-			SCart = [SCart i];
+		if ~ismember(i, SCART)
+			SCART = [SCART i];
 		else
-			fprintf('Side #%d is already in the SCart!\n', i);
+			fprintf('Side #%d is already in the SCART!\n', i);
 		end
-		if ~ismember(Sides(i).SP, PCart)
-			pickPoints(Sides(i).SP); % выбираем начальную точку сегмента
+		if ~ismember(SIDES(i).SP, PCART)
+			pickPoints(SIDES(i).SP); % выбираем начальную точку сегмента
 		end
 
-		if ~ismember(Sides(i).EP, PCart)
-			pickPoints(Sides(i).EP); % выбираем конечную точку сегмента
+		if ~ismember(SIDES(i).EP, PCART)
+			pickPoints(SIDES(i).EP); % выбираем конечную точку сегмента
 		end
 	end
 

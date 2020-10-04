@@ -2,29 +2,29 @@ function forkForward(off_mm)
 % форк выбранной точки по направлению 
 % к следующей
 
-	global PCart;
-	global ConStruct;
+	global PCART;
+	global POINTS;
 
-	if numel(PCart)> 1
+	if numel(PCART)> 1
 		fprintf('Only one point should be selected!\n');
 		return
 	end
 
 % Если выбирается последняя точка контура
-numPoints = [ConStruct.id];
+numPoints = [POINTS.id];
 
-	if PCart == max(numPoints)
+	if PCART == max(numPoints)
 		fprintf('Last point selected! Try another point in range: [1 %d]\n',numPoints-1);
 		return
 	end
 
-	PointId = PCart;
+	PointId = PCART;
 	% Определяем вектор сдвига
 	[dz, dr] = dZdR(PointId, off_mm);
 	% Дублируем выбранную точку
 	makeDuplicate(PointId);
 	% Выбираем дубликат
-	clearPCart();
+	clearPCART();
 	pickPoints(PointId+1);
 	% Перемещаем дубликат на заданное расстояние
 	movePointsZR(dz, dr);
@@ -35,31 +35,31 @@ numPoints = [ConStruct.id];
 end
 
 function makeDuplicate(PointId)
-	global ConStruct;
+	global POINTS;
 
 	% Определяем голову и хвост относительно выбранной точки
-	Head = ConStruct(1:PointId);
-	Tail = ConStruct(PointId+1:end);
+	Head = POINTS(1:PointId);
+	Tail = POINTS(PointId+1:end);
 
 	% Сдвигаем точки хвоста на один шаг вперёд
 	for i = 1:numel(Tail)
 		Tail(i).id = Tail(i).id + 1;
 	end
 
-	NPoint = ConStruct(PointId); % Новая точка-дубликат
+	NPoint = POINTS(PointId); % Новая точка-дубликат
 	NPoint.id = PointId + 1;
 	NPoint.prev = NPoint.id - 1;
 	NPoint.next = NPoint.id + 1;
 
 	% Добавляем новую точку-дубликат в контур
-	ConStruct = [Head NPoint Tail];
+	POINTS = [Head NPoint Tail];
 
 end
 
 function [dz, dr] = dZdR(PointId, off_mm)
-	global ConStruct;
-	DZ = ConStruct(PointId+1).Z - ConStruct(PointId).Z;
-	DR = ConStruct(PointId+1).R - ConStruct(PointId).R;
+	global POINTS;
+	DZ = POINTS(PointId+1).Z - POINTS(PointId).Z;
+	DR = POINTS(PointId+1).R - POINTS(PointId).R;
 	vec_DZDR = [DZ DR];
 	abs_DZDR = sqrt(vec_DZDR*vec_DZDR');
 	ratio = off_mm/abs_DZDR;

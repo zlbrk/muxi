@@ -1,15 +1,15 @@
 % Выровнять R-координаты выбранных точек по точке с определённым номером 
 function alignPointsR(AlignPointId)
-	global PCart;
-	global ConStruct;
+	global PCART;
+	global POINTS;
 
-	if ~isempty(PCart)
-		for i = PCart
-			ConStruct(i).Z = ConStruct(i).Z;
-			ConStruct(i).R = ConStruct(AlignPointId).R;
+	if ~isempty(PCART)
+		for i = PCART
+			POINTS(i).Z = POINTS(i).Z;
+			POINTS(i).R = POINTS(AlignPointId).R;
 		end
 	else
-		fprintf('PCart is empty. Nothing to move!\n');
+		fprintf('PCART is empty. Nothing to move!\n');
 	end
 
 	setCheckpoint(); % Создаём чекпойнт

@@ -1,19 +1,19 @@
 % Основной инструмент прямого редактирования контура 
 function pullPush(off_mm)
-	global SCart; % Нам понадобятся выбранные стороны
-	global Sides; % Нам не только выбранные стороны
-	global ConStruct; % И координаты точек
+	global SCART; % Нам понадобятся выбранные стороны
+	global SIDES; % Нам не только выбранные стороны
+	global POINTS; % И координаты точек
 
-	if isempty(SCart)
-		fprintf('SCart is empty. Nothing to push or pull!\n');
+	if isempty(SCART)
+		fprintf('SCART is empty. Nothing to push or pull!\n');
 	end
-	if numel(SCart)>1
+	if numel(SCART)>1
 		fprintf('Only one side can be pulled or pushed simultaneously!\n');
 	end
-	if numel(SCart)==1
-		fprintf('Side #%d pulled by %g mm!\n', SCart, off_mm);
+	if numel(SCART)==1
+		fprintf('Side #%d pulled by %g mm!\n', SCART, off_mm);
 	end
-	[pointsToFork, directions] = whichPointsToFork(SCart);
+	[pointsToFork, directions] = whichPointsToFork(SCART);
 	sortedPointsToFork = sort(pointsToFork,'ascend');
 	if numel(sortedPointsToFork)==2
 		clearCarts();
@@ -23,12 +23,12 @@ function pullPush(off_mm)
 		pickPoints(sortedPointsToFork(2)+1);
 		forkBackward(0); % Дублируем вторую точку, которая остаётся выбранной
 		clearCarts();
-		pickSides(sortedPointsToFork(1)+1); % Выбираем новую сторону
+		pickSIDES(sortedPointsToFork(1)+1); % Выбираем новую сторону
 		PD = off_mm*directions(:,1); % Points displacement
 		movePointsZR(PD(1),PD(2));
 	end
 
-	if pointsToFork == Sides(SCart).SP
+	if pointsToFork == SIDES(SCART).SP
 		% Контравариантный случай (левый нижний угол)
 		clearCarts();
 		pickPoints(sortedPointsToFork(1));
@@ -41,7 +41,7 @@ function pullPush(off_mm)
 		EPD = off_mm*directions(:,2); % Ending Point Displacement
 		movePointsZR(EPD(1),EPD(2)); % Перемещаем угловую точку против тангенциали
 	
-	elseif pointsToFork == Sides(SCart).EP
+	elseif pointsToFork == SIDES(SCART).EP
 		% Ковариантный случай (правый нижний угол)
 		clearCarts();
 		pickPoints(sortedPointsToFork(1));
@@ -57,12 +57,12 @@ function pullPush(off_mm)
 
 	if isempty(pointsToFork)
 		% Корыто (правый нижний угол)
-		dropPoints(Sides(SCart).EP); % Сбрасываем выбор конечной точки
+		dropPoints(SIDES(SCART).EP); % Сбрасываем выбор конечной точки
 		SPD = off_mm*directions(:,1); % Starting Point Displacement
 		movePointsZR(SPD(1),SPD(2)); % Перемещаем первую точку по тангенциали
 
-		dropPoints(Sides(SCart).SP); % Сбрасываем выбор начальной точки
-		pickPoints(Sides(SCart).EP); % Выбор конечной точки
+		dropPoints(SIDES(SCART).SP); % Сбрасываем выбор начальной точки
+		pickPoints(SIDES(SCART).EP); % Выбор конечной точки
 		EPD = off_mm*directions(:,2); % Ending Point Displacement
 		movePointsZR(SPD(1),SPD(2)); % Перемещаем первую точку по тангенциали
 		disp('Корыто')
@@ -74,10 +74,10 @@ end
 
 %% whichNeedFork: function description
 function [pointsToFork, directions] = whichPointsToFork(sNumber)
-	global Sides;
-	C = Sides(sNumber).id; % номер выбранной стороны
-	P = Sides(sNumber).prev; % номер предыдущей стороны
-	N = Sides(sNumber).next; % номер следующей стороны
+	global SIDES;
+	C = SIDES(sNumber).id; % номер выбранной стороны
+	P = SIDES(sNumber).prev; % номер предыдущей стороны
+	N = SIDES(sNumber).next; % номер следующей стороны
 	
 	CN = getNormal(C); % вектор нормали выбранной стороны
 	PN = getNormal(P); % вектор нормали предыдущей стороны
@@ -89,14 +89,14 @@ function [pointsToFork, directions] = whichPointsToFork(sNumber)
 	NC_mod = NC_cross*NC_cross'; % next - central cross product modulus
 
 	if (PC_mod <= eps) && (NC_mod <= eps) % Все три сегмента лежат на одной прямой
-		pointsToFork = [Sides(sNumber).SP Sides(sNumber).EP];
+		pointsToFork = [SIDES(sNumber).SP SIDES(sNumber).EP];
 		directions = [CN CN];
 	elseif (PC_mod <= eps) && (NC_mod > eps) % Левый сегмент лежит, а правый нет
-		pointsToFork = [Sides(sNumber).SP];
+		pointsToFork = [SIDES(sNumber).SP];
 		NPD = rotateVector(getTangential(N), 180); % Next point direction
 		directions = [CN NPD];
 	elseif (PC_mod > eps) && (NC_mod <= eps) % Правый лежит, а левый - нет
-		pointsToFork = [Sides(sNumber).EP];
+		pointsToFork = [SIDES(sNumber).EP];
 		PPD = getTangential(P); % Prev point direction
 		directions = [PPD CN];
 	elseif (PC_mod > eps) && (NC_mod > eps)
@@ -109,22 +109,22 @@ function [pointsToFork, directions] = whichPointsToFork(sNumber)
 end
 
 function [normal] = getNormal(sNumber)
-	global Sides;
-	global ConStruct;
+	global SIDES;
+	global POINTS;
 	[ntnd] = getTangential(sNumber); % normalized tangential
 	[normal] = rotateVector(ntnd, 90); % normalized normal
 end
 
 %% getTangential: function description
 function [ntnd] = getTangential(sNumber)
-	global Sides;
-	global ConStruct;
+	global SIDES;
+	global POINTS;
 	% start point ZR
-	SPZ = ConStruct(Sides(sNumber).SP).Z;
-	SPR = ConStruct(Sides(sNumber).SP).R;
+	SPZ = POINTS(SIDES(sNumber).SP).Z;
+	SPR = POINTS(SIDES(sNumber).SP).R;
 	% end point ZR
-	EPZ = ConStruct(Sides(sNumber).EP).Z;
-	EPR = ConStruct(Sides(sNumber).EP).R;
+	EPZ = POINTS(SIDES(sNumber).EP).Z;
+	EPR = POINTS(SIDES(sNumber).EP).R;
 	tng = [(EPZ-SPZ) (EPR - SPR)]'; % tangential={dz, dr}
 	ntnd = tng./sqrt(tng'*tng); % normalization
 end

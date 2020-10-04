@@ -1,12 +1,12 @@
 function highlightSCart()
-	global SCart;
-	global Sides;
-	global Colors;
-	if ~isempty(SCart)
-		for i = SCart
-			drawSide(Sides(i), Colors.Picked, 2); % подсвечиваем выбранные сегменты
+	global SCART;
+	global SIDES;
+	global COLORS;
+	if ~isempty(SCART)
+		for i = SCART
+			drawSide(SIDES(i), COLORS.Picked, 2); % подсвечиваем выбранные сегменты
 		end
 	else
-		fprintf('SCart is empty. Nothing to highlight!\n');
+		fprintf('SCART is empty. Nothing to highlight!\n');
 	end
 end

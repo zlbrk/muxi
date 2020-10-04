@@ -1,23 +1,23 @@
-function dropSides(SideIds)
+function dropSIDES(SideIds)
 % удаление сегментов из корзины
-	global SCart;
-	global Sides;
+	global SCART;
+	global SIDES;
 
 	for i = SideIds
-		if ~ismember(i, [Sides.id])
+		if ~ismember(i, [SIDES.id])
 			fprintf('Side #%d does not exist!\n',i);
 			continue
 		end
-		if ~ismember(i, SCart)
-			fprintf('Side #%d is not in the SCart!\n', i);
+		if ~ismember(i, SCART)
+			fprintf('Side #%d is not in the SCART!\n', i);
 		end
-		id = find(SCart==i);
-		SCart(id)=[];
-		if ~ismember(Sides(i).next, SCart)
-			dropPoints(Sides(i).next);
+		id = find(SCART==i);
+		SCART(id)=[];
+		if ~ismember(SIDES(i).next, SCART)
+			dropPoints(SIDES(i).next);
 		end
-		if ~ismember(Sides(i).prev, SCart)
-			dropPoints(Sides(i).id);
+		if ~ismember(SIDES(i).prev, SCART)
+			dropPoints(SIDES(i).id);
 		end
 	end
 	

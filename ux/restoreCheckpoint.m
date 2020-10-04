@@ -1,11 +1,11 @@
 % Загружаем конкретное состояние модели
 function restoreCheckpoint(State)
-global ConStruct
+global POINTS
 global ModelStateCounter
 
 filename = sprintf('temp/state_%d', State);
 
-load(filename, 'ConStruct', 'ModelStateCounter');
+load(filename, 'POINTS', 'ModelStateCounter');
 
 clearPCart();
 

@@ -1,6 +1,6 @@
 % Очистить корзину
 function clearPCart()
-	global PCart; 
-	PCart = [];
+	global PCART; 
+	PCART = [];
 	refreshView(); % Обновляем вид
 end

@@ -11,10 +11,10 @@ function refreshView()
  	drawSides();
 	drawPoints(); % рисуем все точки
 	if ~isempty(PCART)
-		highlightPCART(); % подсвечиваем выбранные точки
+		highlightPCart(); % подсвечиваем выбранные точки
 	end
 	if ~isempty(SCART)
-		highlightSCART(); % подсвечиваем выбранные сегменты
+		highlightSCart(); % подсвечиваем выбранные сегменты
 	end
 
 	showPointIDs(); % Выводим номера точек

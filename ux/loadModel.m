@@ -1,5 +1,6 @@
 function loadModel(filename)
-global ConStruct
+global POINTS
+global SIDES
 global ModelStateCounter
 
 filename = ['saves/' filename];
@@ -9,7 +10,7 @@ filename = ['saves/' filename];
 % - Задача со звёздочкой: вывод подсказки, если функция вызвана без аргументов, 
 %   Подсказка: нужно использовать varargin (в хелпе есть классный пример).
 
-load(filename, 'ConStruct');
+load(filename, 'POINTS', 'SIDES');
 ModelStateCounter = 0; % инициализация счётчика состояний модели
 setCheckpoint(); % создаём чекпойнт
 
@@ -17,6 +18,6 @@ clearCarts(); % умещаем модель на канве
 fitView(); % умещаем модель на канве
 
 fprintf('Your model stored in "muxi/saves/%s.mat" file\n successfully loaded \n', filename);
-fprintf('Variables "ConStruct" and "Colors" have been changed \n');
+fprintf('Variables "POINTS" and "Colors" have been changed \n');
 
 end
