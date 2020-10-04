@@ -1,9 +1,8 @@
 % Инициализация файловой системы проекта
 opath = path; % old path
-workdir = split(pwd,'\')
-workdir = join(workdir(1:2),'\')
+workdir = pwd;
 muxiFS = sprintf('%s; ux; render; bin; saves', workdir);
-muxiFS = sprintf('%s; debug; drivers/comi; temp; init;', muxiFS);
+muxiFS = sprintf('%s; debug; drivers/comi; temp;', muxiFS);
 % разделяем строку с описанием файловой системы на отдельные поддиректории
 subdirs = split(muxiFS); 
 % создаём поддиректории, если они не существуют (если нет дескрипторов типа folder (7) с именем поддиректории)
