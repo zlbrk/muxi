@@ -1,9 +1,9 @@
-function drawPoints()
-	global ConStruct;
-	global Colors;
+function drawPOINTS()
+	global POINTS;
+	global COLORS;
 
-	for i = 1:numel(ConStruct)
-		drawPoint(ConStruct(i), 's', Colors.Points, 16);
+	for i = 1:numel(POINTS)
+		drawPoint(POINTS(i), 's', COLORS.POINTS, 16);
 	end	
 end
 

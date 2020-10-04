@@ -1,10 +1,9 @@
 function drawSides()
-	global ConStruct;
-	global Sides;
-	global Colors;
+	global SIDES;
+	global COLORS;
 
-	for i = 1:numel(Sides)
-		drawSide(Sides(i), Colors.Sides, 1.5);
+	for i = 1:numel(SIDES)
+		drawSide(SIDES(i), COLORS.SIDES, 1.5);
 	end	
 end
 

@@ -16,15 +16,9 @@ initGlobals;
 initFigure();
 
 % Инициализируем Пробный регион
-% initRegion();
+initDummy();
 
-pause
-
-% Загружаем базовую модель
-% loadModel('concave');
-
-
-%% Журналирование
+%% Инициализация журналирования
 delete 'temp/*' % очистка временных файлов
 
 global ModelStateCounter;
@@ -32,3 +26,6 @@ global ModelStateCounter;
 
 setCheckpoint(); % создаём начальный чекпойнт
 refreshView(); % обновляем вид
+
+% Подгоняем масштаб
+fitView();
