@@ -1,7 +1,7 @@
 % Инициализация файловой системы проекта
 opath = path; % old path
 workdir = pwd;
-muxiFS = sprintf('%s; ux; render; bin; saves', workdir);
+muxiFS = sprintf('%s; ux/display; ux/modify; render; bin; saves', workdir);
 muxiFS = sprintf('%s; debug; drivers/comi; temp;', muxiFS);
 % разделяем строку с описанием файловой системы на отдельные поддиректории
 subdirs = split(muxiFS); 
