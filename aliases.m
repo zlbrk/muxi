@@ -1,6 +1,7 @@
-% Это типа набор псевдонимов функций, реализации которых раскиданы по директориям
+% Это псевдонимы функций, необходимых в интерактивной работе
 
 refView = @() refreshView();
+fitView = @() fitView();
 reCheck = @(State) restoreCheckpoint(State);
 undo = @() undoLastCommand();
 redo = @() redoLastCommand();
@@ -15,7 +16,8 @@ ff = @(off_mm) forkForward(off_mm);
 fb = @(off_mm) forkBackward(off_mm);
 sm = @(filename) saveModel(filename);
 lm = @(filename) loadModel(filename);
-pl = @(off_mm) pullPush(off_mm);
+pll = @(off_mm) pullPush(off_mm); % pull side inward contuor (outline)
+psh = @(off_mm) pullPush(-off_mm); % push side outward contuor (outline)
 
 cpp = @() clearPCart(); % Clear all picked points
 cps = @() clearSCart(); % Clear all picked sides and points
@@ -36,7 +38,7 @@ sv = @(V) setVoltage(V);
 cf = @() createFile();
 
 %% Низкоуровневые функции 
-initFigure = @(ZMIN, ZMAX, RMIN, RMAX) initFigure(ZMIN, ZMAX, RMIN, RMAX);
+initFigure = @() initFigure();
 drawVoid = @() drawVoid();
 drawPoints = @() drawPoints();
 drawCathode = @() drawCathode();
