@@ -33,14 +33,14 @@ spz = @(Znew) setPointsZ(Znew);
 spr = @(Rnew) setPointsR(Rnew);
 
 %% Функции CAE
-tm = @() toggleMesh();
-sv = @(V) setVoltage(V);
-cf = @() createFile();
+% tm = @() toggleMesh();
+% sv = @(V) setVoltage(V);
+% cf = @() createFile();
 
 %% Низкоуровневые функции 
-initFigure = @() initFigure();
-drawVoid = @() drawVoid();
-drawPoints = @() drawPoints();
-drawCathode = @() drawCathode();
-showPointIDs = @() showPointIDs();
+% initFigure = @() initFigure();
+% drawVoid = @() drawVoid();
+% drawPoints = @() drawPoints();
+% drawCathode = @() drawCathode();
+% showPointIDs = @() showPointIDs();
 
