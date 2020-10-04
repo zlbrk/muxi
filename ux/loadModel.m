@@ -1,5 +1,6 @@
 function loadModel(filename)
 global ConStruct
+global ModelStateCounter
 
 filename = ['saves/' filename];
 % TODO
@@ -9,7 +10,11 @@ filename = ['saves/' filename];
 %   Подсказка: нужно использовать varargin (в хелпе есть классный пример).
 
 load(filename, 'ConStruct');
-clearCart();
+ModelStateCounter = 0; % инициализация счётчика состояний модели
+setCheckpoint(); % создаём чекпойнт
+
+clearCarts(); % умещаем модель на канве
+fitView(); % умещаем модель на канве
 
 fprintf('Your model stored in "muxi/saves/%s.mat" file\n successfully loaded \n', filename);
 fprintf('Variables "ConStruct" and "Colors" have been changed \n');
