@@ -10,11 +10,10 @@ function pullPush(off_mm)
 	if numel(SCart)>1
 		fprintf('Only one side can be pulled or pushed simultaneously!\n');
 	end
-
 	if numel(SCart)==1
 		fprintf('Side #%d pulled by %g mm!\n', SCart, off_mm);
 	end
-	[pointsToFork, directions] = whichPointsToFork(SCart)
+	[pointsToFork, directions] = whichPointsToFork(SCart);
 	sortedPointsToFork = sort(pointsToFork,'ascend');
 	if numel(sortedPointsToFork)==2
 		clearCarts();
@@ -47,17 +46,29 @@ function pullPush(off_mm)
 		clearCarts();
 		pickPoints(sortedPointsToFork(1));
 		forkBackward(0); % Дублируем конечную точку сегмента
-		SPD = off_mm*directions(:,2); % Ending Point Displacement
+		SPD = off_mm*directions(:,2); % Starting Point Displacement
 		movePointsZR(SPD(1),SPD(2)); % Угловую точку по тангенциали
 		
 		clearCarts();
 		pickPoints(sortedPointsToFork(1)-1); % Выбираем угловую точку (предыдущая от конечной, форкнутой вперёд)
 		EPD = off_mm*directions(:,1); % Starting Point Displacement
 		movePointsZR(EPD(1),EPD(2)); % Перемещаем угловую точку против тангенциали
-
 	end
 
-	setCheckpoint(); % Создаём чекпойнт
+	if isempty(pointsToFork)
+		% Корыто (правый нижний угол)
+		dropPoints(Sides(SCart).EP); % Сбрасываем выбор конечной точки
+		SPD = off_mm*directions(:,1); % Starting Point Displacement
+		movePointsZR(SPD(1),SPD(2)); % Перемещаем первую точку по тангенциали
+
+		dropPoints(Sides(SCart).SP); % Сбрасываем выбор начальной точки
+		pickPoints(Sides(SCart).EP); % Выбор конечной точки
+		EPD = off_mm*directions(:,2); % Ending Point Displacement
+		movePointsZR(SPD(1),SPD(2)); % Перемещаем первую точку по тангенциали
+		disp('Корыто')
+	end
+
+	% setCheckpoint(); % Создаём чекпойнт
 	refreshView(); % Обновляем вид
 end
 
@@ -66,11 +77,11 @@ function [pointsToFork, directions] = whichPointsToFork(sNumber)
 	global Sides;
 	C = Sides(sNumber).id; % номер выбранной стороны
 	P = Sides(sNumber).prev; % номер предыдущей стороны
-	N = Sides(sNumber).next % номер следующей стороны
+	N = Sides(sNumber).next; % номер следующей стороны
 	
-	CN = getNormal(C) % вектор нормали выбранной стороны
-	PN = getNormal(P) % вектор нормали предыдущей стороны
-	NN = getNormal(N) % вектор нормали следующей стороны
+	CN = getNormal(C); % вектор нормали выбранной стороны
+	PN = getNormal(P); % вектор нормали предыдущей стороны
+	NN = getNormal(N); % вектор нормали следующей стороны
 
 	PC_cross = cross([CN' 0], [PN' 0]); % prev - central normals cross product
 	PC_mod = PC_cross*PC_cross'; % prev - central cross product modulus
@@ -90,8 +101,10 @@ function [pointsToFork, directions] = whichPointsToFork(sNumber)
 		directions = [PPD CN];
 	elseif (PC_mod > eps) && (NC_mod > eps)
 		% Корыто
-		disp('TODO')
-
+		pointsToFork = [];
+		PPD = getTangential(P) % Prev point direction
+		NPD = getTangential(N) % Next point direction
+		directions = [PPD NPD]; % Грязный хак :(
 	end
 end
 
