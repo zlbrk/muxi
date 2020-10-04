@@ -4,7 +4,7 @@ function drawSides()
 	global Colors;
 
 	for i = 1:numel(Sides)
-		drawSide(Sides(i), Colors.Sides, 1);
+		drawSide(Sides(i), Colors.Sides, 1.5);
 	end	
 end
 
