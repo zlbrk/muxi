@@ -1,5 +1,5 @@
 % Основной инструмент прямого редактирования контура 
-function pullPush(off_mm)
+function pull(off_mm)
 	global SCART; % Нам понадобятся выбранные стороны
 	global SIDES; % Нам не только выбранные стороны
 	global POINTS; % И координаты точек
