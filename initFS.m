@@ -2,7 +2,7 @@
 opath = path; % old path
 workdir = pwd;
 muxiFS = sprintf('%s; ux; ux/display; ux/modify; render; bin; saves', workdir);
-muxiFS = sprintf('%s; debug; drivers/comi; temp;', muxiFS);
+muxiFS = sprintf('%s; debug; drivers/comi; temp; TESTBENCH', muxiFS);
 % разделяем строку с описанием файловой системы на отдельные поддиректории
 subdirs = split(muxiFS); 
 % создаём поддиректории, если они не существуют (если нет дескрипторов типа folder (7) с именем поддиректории)

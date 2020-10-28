@@ -1,10 +1,10 @@
-function initDummy()
+function initDummy(Zmax, Rmax)
 global POINTS
 global SIDES
 
 % Определяем координаты точек региона
-ZR(:, 1) = [0.0, 0.0, 1.0, 1.0];
-ZR(:, 2) = [0.0, 1.0, 1.0, 0.0];
+ZR(:, 1) = [0.0, 0.0, Zmax, Zmax];
+ZR(:, 2) = [0.0, Rmax, Rmax, 0.0];
 ZRpts = numel(ZR(:, 1)); % Количество точек в контуре (оно же количество сегментов)
 
 % Инициализируем Регион

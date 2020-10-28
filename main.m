@@ -16,7 +16,7 @@ initGlobals;
 initFigure();
 
 % Инициализируем Пробный регион
-initDummy();
+initDummy(5, 3);
 
 %% Инициализация журналирования
 delete 'temp/*' % очистка временных файлов
