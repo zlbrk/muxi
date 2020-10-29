@@ -16,7 +16,11 @@ initGlobals;
 initFigure();
 
 % Инициализируем Пробный регион
-initDummy(5, 3);
+if exist('saves/Pentagon.mat')==2
+	lm('Pentagon');
+else
+	initDummy(5, 3);
+end
 
 %% Инициализация журналирования
 delete 'temp/*' % очистка временных файлов

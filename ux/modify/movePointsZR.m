@@ -14,5 +14,6 @@ function movePointsZR(dz, dr)
 	
 	refreshSides(); % Обновляем структуру сегментов? Нужно ли это здесь?
 	setCheckpoint(); % Создаём чекпойнт
+	clearPCart();
 	refreshView(); % Обновляем вид
 end

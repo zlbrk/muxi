@@ -16,8 +16,7 @@ ff = @(off_mm) forkForward(off_mm);
 fb = @(off_mm) forkBackward(off_mm);
 sm = @(filename) saveModel(filename);
 lm = @(filename) loadModel(filename);
-pull = @(off_mm) pull(off_mm); % pull side inward contuor (outline)
-% psh = @(off_mm) pull(-off_mm); % push side outward contuor (outline)
+pull = @(off_mm) pull(off_mm); % pull side outward contuor negative off pulls side inward.
 
 cpp = @() clearPCart(); % Clear all picked points
 cps = @() clearSCart(); % Clear all picked sides and points
