@@ -16,8 +16,8 @@ initGlobals;
 initFigure();
 
 % Инициализируем Пробный регион
-if exist('saves/Quad.mat')==2
-	lm('Quad');
+if exist('saves/Triangle.mat')==2
+	lm('Triangle');
 else
 	initDummy(5, 3);
 end
