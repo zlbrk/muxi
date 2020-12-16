@@ -67,15 +67,13 @@ function [zvp, rvp] = getVisPoints(z2, r2, Rs)
 		z1 = NaN;
 		return 
 	end
-	N = 32
+	N = 32;
 	alpha2 = asind(r2/Rs);
 	alphaN = linspace(0, alpha2, N);
 	dzN = Rs*cosd(alphaN(N)); % расстояние от z2 (положение катода) до центра сферы
 	for i = 1:N
 		zvp(i) = z2 - (Rs*cosd(alphaN(i)) - dzN); % менее очевидно, но более компактно
-		rvp(i) = Rs*sind(alphaN(i)) % это можно делать в первом цикле,
+		rvp(i) = Rs*sind(alphaN(i)); % это можно делать в первом цикле,
 	end
-	% dzi2 = dz - dz(N); % расстояниz от z2 до zi
-	% zvp = z2 - dzi2;
 	
 end

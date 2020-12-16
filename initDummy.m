@@ -31,6 +31,7 @@ for i = 1:ZRpts
 	s.id = i; % номер сегмента
 	s.SP = i; % начальная точка сегмента (Start point)
 	s.EP = i+1; % конечная точка сегмента (End point)
+	s.CURV = 0; % изначально все сегменты - отрезки прямых (кривизна равна нулю)
 	if s.EP > ZRpts
 		s.EP = 1; % замыкаем контур
 	end
@@ -46,4 +47,7 @@ for i = 1:ZRpts
 	
 end
 
-
+SIDES([1]).CURV=1/9
+SIDES([3]).CURV=1/9
+SIDES([2]).CURV=-1/15
+SIDES([4]).CURV=-1/15
