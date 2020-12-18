@@ -13,6 +13,6 @@ function drawSide(s, LineColor, LineWidth)
 	plot([Zsp Zep], [Rsp Rep],...
 	'Color', LineColor,...
 	'LineWidth',LineWidth);
-	hold off; % Замораживаем текущие оси координат
+	hold off; % Размораживаем текущие оси координат
 end
 
