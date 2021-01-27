@@ -6,6 +6,7 @@ function refreshView()
 	global ModelStateCounter;
 	
 	cla(); % очищаем оси
+ 	drawSides(); % рисуем стороны
 	drawRegion(); % закращиваем регион
  	drawSides(); % рисуем стороны
 	drawPoints(); % рисуем точки

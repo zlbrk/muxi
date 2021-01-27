@@ -1,7 +1,7 @@
 function drawRegion()
-	global POINTS;
+	global RGVP;
 	global COLORS;
 	hold on
-	fill([POINTS.Z], [POINTS.R], COLORS.Void);
+	fill(RGVP(:,1), RGVP(:,2), COLORS.Void);
 	hold off;
 end
