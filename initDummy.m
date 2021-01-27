@@ -1,9 +1,19 @@
-function initDummy(Zmax, Rmax)
+function initDummy()
 global POINTS
 global SIDES
+global CATS
+
+Zcat = CATS.Zc; % Определяет положение катода (вообще говоря, надо проверять)
+Rmax = CATS.Rc; % Радиус катода (определяет поперечный размер эмиттера)
+Rs = CATS.Rs; % Радиус сферы катода
+Zmax = 2*CATS.Rc; % Нам всё равно какая длина будет у болванки
+
+alpha2 = asind(Rmax/Rs);
+dzN = Rs*cosd(alpha2); % расстояние от z2 (положение катода) до центра сферы
+Zc1 = Zcat + dzN - Rs;
 
 % Определяем координаты точек региона
-ZR(:, 1) = [0.0, 0.0, Zmax, Zmax];
+ZR(:, 1) = [Zc1, Zcat, Zmax, Zmax];
 ZR(:, 2) = [0.0, Rmax, Rmax, 0.0];
 ZRpts = numel(ZR(:, 1)); % Количество точек в контуре (оно же количество сегментов)
 
@@ -47,7 +57,7 @@ for i = 1:ZRpts
 	
 end
 
-SIDES([1]).CURV=1/9
-SIDES([3]).CURV=1/9
-SIDES([2]).CURV=-1/15
-SIDES([4]).CURV=-1/15
+SIDES([1]).CURV=1/Rs
+SIDES([3]).CURV=0
+SIDES([2]).CURV=0
+SIDES([4]).CURV=0

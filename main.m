@@ -15,12 +15,15 @@ initGlobals;
 % Инициализируем канву
 initFigure();
 
+% Определяем параметры катода
+CATS.Zc = 2;
+CATS.Rc = 4.3;
+CATS.Rs = 9;
+CATS.SD = 0.075;
+
 % Инициализируем Пробный регион
-if exist('saves/Triangle.mat')==2
-	lm('Triangle');
-else
-	initDummy(5, 3);
-end
+initDummy();
+
 
 %% Инициализация журналирования
 delete 'temp/*' % очистка временных файлов
