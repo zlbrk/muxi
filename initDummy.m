@@ -57,7 +57,7 @@ for i = 1:ZRpts
 	
 end
 
-SIDES([1]).CURV=1/Rs
-SIDES([3]).CURV=0
-SIDES([2]).CURV=0
-SIDES([4]).CURV=0
+SIDES([1]).CURV=1/Rs;
+SIDES([3]).CURV=0;
+SIDES([2]).CURV=0;
+SIDES([4]).CURV=0;
