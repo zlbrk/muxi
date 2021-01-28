@@ -3,9 +3,11 @@ function refreshView()
 	global PCART;
 	global SCART;
 	global GA;
+	global RGVP;
 	global ModelStateCounter;
 	
 	cla(); % очищаем оси
+	RGVP = []; % очищаем точки визуализации (иначе их будет накапливаться очень много)
  	drawSides(); % рисуем стороны
 	drawRegion(); % закращиваем регион
  	drawSides(); % рисуем стороны
