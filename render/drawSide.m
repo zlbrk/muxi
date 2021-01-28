@@ -13,8 +13,8 @@ function drawSide(s, LineColor, LineWidth)
 		Zsp = POINTS(SP_idx).Z;
 		Rsp = POINTS(SP_idx).R;
 			
-		Zep = POINTS(EP_idx).Z
-		Rep = POINTS(EP_idx).R
+		Zep = POINTS(EP_idx).Z;
+		Rep = POINTS(EP_idx).R;
 
 		RGVP = [RGVP; [Zep Rep]];
 
@@ -26,7 +26,7 @@ function drawSide(s, LineColor, LineWidth)
 	else
 		Zep = POINTS(EP_idx).Z;
 		Rep = POINTS(EP_idx).R;
-		[zap, rap] = getArcPoints(Zep, Rep, 1/s_CURV)
+		[zap, rap] = getArcPoints(Zep, Rep, 1/s_CURV);
 
 		RGVP = [RGVP; [zap, rap]];
 
