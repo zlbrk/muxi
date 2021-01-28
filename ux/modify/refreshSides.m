@@ -12,6 +12,7 @@ function refreshSIDES()
 	s.CURV = 1/CATS.Rs; % Кривизна катода из радиуса сферы
 	s.next = 2; % номер следующего сегмента
 	s.prev = numel(POINTS); % номер предыдущего сегмента
+	SIDES = [SIDES s];
 
 	for i = 2:numel(POINTS)
 		% Инициализация сегментов
