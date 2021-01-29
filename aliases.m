@@ -16,13 +16,13 @@ ff = @(off_mm) forkForward(off_mm);
 fb = @(off_mm) forkBackward(off_mm);
 sm = @(filename) saveModel(filename);
 lm = @(filename) loadModel(filename);
-pull = @(off_mm) pullSide(off_mm); % pull side outward contuor negative off pulls side inward.
+% pull = @(off_mm) pullSide(off_mm); % pull side outward contuor negative off pulls side inward.
 
 cpp = @() clearPCart(); % Clear all picked points
 cps = @() clearSCart(); % Clear all picked sides and points
 cc = @() clearCarts(); % Clear all picked sides
 
-spp = @(Znew, Rnew) setPointPosition(Znew, Rnew);
+spp = @(Znew, Rnew) setPointZR(Znew, Rnew);
 mvr = @(dr) movePointsR(dr);
 mvz = @(dz) movePointsZ(dz);
 
@@ -31,6 +31,7 @@ apr = @(AlignPointId) alignPointsR(AlignPointId);
 spz = @(Znew) setPointsZ(Znew);
 spr = @(Rnew) setPointsR(Rnew);
 
+sc = @(Zc, Rc, Rs, SD) setCATS(Zc, Rc, Rs, SD);
 %% Функции CAE
 % tm = @() toggleMesh();
 % sv = @(V) setVoltage(V);
