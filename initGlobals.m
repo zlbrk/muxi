@@ -4,7 +4,7 @@ global COLORS;
   COLORS.POINTS = [25, 100, 150]/255;
   COLORS.SIDES = [0.00, 0.45, 0.74];
   COLORS.Picked = [180, 0, 135]/255;
-  COLORS.Cathode = [242, 20, 140]/255;
+  COLORS.EMITTER = [242, 20, 140]/255;
   COLORS.Mesh = [140 140 130]/255;
 
 global PCART;

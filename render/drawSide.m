@@ -1,6 +1,7 @@
 function drawSide(s, LineColor, LineWidth)
 	global POINTS;
 	global SIDES;
+	global COLORS;
 	
 	s_CURV = SIDES(s.id).CURV;
 	SP_idx = SIDES(s.id).SP;
@@ -11,7 +12,7 @@ function drawSide(s, LineColor, LineWidth)
 		
 		Zsp = POINTS(SP_idx).Z;
 		Rsp = POINTS(SP_idx).R;
-			
+		
 		Zep = POINTS(EP_idx).Z;
 		Rep = POINTS(EP_idx).R;
 		
@@ -25,12 +26,17 @@ function drawSide(s, LineColor, LineWidth)
 		Rep = POINTS(EP_idx).R;
 		% Вычисляем промежуточные координаты дуги
 		[zap, rap] = getArcPoints(Zep, Rep, 1/s_CURV);
+		MPts=5;
+		zMp = linspace(zap(1),zap(end),MPts)
+		rMp = interp1(zap, rap, zMp)
 
-		
 		hold on; % Замораживаем текущие оси координат
 		plot(zap, rap,...
-		'Color', LineColor,...
-		'LineWidth',LineWidth);
+		'Color', COLORS.EMITTER,...
+		'LineWidth',LineWidth*2.5);
+		% plot(zMp, rMp, '>',...
+		% 'Color', COLORS.EMITTER,...
+		% 'LineWidth',LineWidth);
 		hold off; % Размораживаем текущие оси координат
 	end
 
