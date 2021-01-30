@@ -26,17 +26,12 @@ function drawSide(s, LineColor, LineWidth)
 		Rep = POINTS(EP_idx).R;
 		% Вычисляем промежуточные координаты дуги
 		[zap, rap] = getArcPoints(Zep, Rep, 1/s_CURV);
-		MPts=5;
-		zMp = linspace(zap(1),zap(end),MPts)
-		rMp = interp1(zap, rap, zMp)
 
 		hold on; % Замораживаем текущие оси координат
 		plot(zap, rap,...
 		'Color', COLORS.EMITTER,...
 		'LineWidth',LineWidth*2.5);
-		% plot(zMp, rMp, '>',...
-		% 'Color', COLORS.EMITTER,...
-		% 'LineWidth',LineWidth);
+
 		hold off; % Размораживаем текущие оси координат
 	end
 
