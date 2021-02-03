@@ -13,6 +13,5 @@ function alignPointsR(AlignPointId)
 	end
 	
 	refreshSides(); % Обновляем структуру сегментов
-	setCheckpoint(); % Создаём чекпойнт
 	refreshView(); % Обновляем вид
 end
