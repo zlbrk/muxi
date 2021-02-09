@@ -11,7 +11,6 @@ function alignPointsR(AlignPointId)
 	else
 		fprintf('PCART is empty. Nothing to move!\n');
 	end
-	
-	refreshSides(); % Обновляем структуру сегментов
+		
 	refreshView(); % Обновляем вид
 end
