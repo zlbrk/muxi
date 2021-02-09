@@ -13,10 +13,6 @@ function forkForward(off_mm)
 % Если выбирается последняя точка контура
 numPoints = [POINTS.id];
 
-	% if PCART == max(numPoints)
-	% 	fprintf('Last point selected! Try another point in range: [1 %d]\n',numPoints-1);
-	% 	return
-	% end
 
 	PointId = PCART;
 	% Определяем вектор сдвига
@@ -29,7 +25,7 @@ numPoints = [POINTS.id];
 	% Перемещаем дубликат на заданное расстояние
 	movePointsZR(dz, dr);
 	refreshSides(); % Обновляем структуру сегментов
-	% setCheckpoint(); % Создаём чекпойнт
+	setCheckpoint(); % Создаём чекпойнт
 	
 	clearPCart(); % Убираем побочку
 	refreshView(); % Обновляем вид
