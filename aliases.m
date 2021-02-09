@@ -23,8 +23,8 @@ cps = @() clearSCart(); % Clear all picked sides and points
 cc = @() clearCarts(); % Clear all picked sides
 
 spp = @(Znew, Rnew) setPointZR(Znew, Rnew);
-mvr = @(dr) movePointsR(dr);
-mvz = @(dz) movePointsZ(dz);
+mvr = @(dr) movePointsZR(0,dr);
+mvz = @(dz) movePointsZR(dz,0);
 
 apz = @(AlignPointId) alignPointsZ(AlignPointId);
 apr = @(AlignPointId) alignPointsR(AlignPointId);

@@ -12,7 +12,6 @@ function movePointsZR(dz, dr)
 		fprintf('PCART is empty. Nothing to move!\n');
 	end
 	
-	refreshSides(); % Обновляем структуру сегментов? Нужно ли это здесь?
 	clearCarts();
 	refreshView(); % Обновляем вид
 end
