@@ -25,6 +25,11 @@ global SIDES;
   % SIDES.prev = []; % номер предыдущего сегмента
   % SIDES.next = []; % номер следующего сегмента
 
+global LABELS;
+	LABELS = [];
+	% LABELS.id = 'lname'; % строка символов, идентифицирующая группу сторон
+	% LABELS.sides = [1 2]; % номера сегментов, на которые будет повешена метка
+
 global RGVP;
   RGVP = []; % Это матрица координат точек для закраски контура
              % Region visualization points
