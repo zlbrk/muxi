@@ -10,11 +10,15 @@ end
 for i = 1:numel(kLabels)
 	if string(kLabels{i,1})==string(lname)
 		lidx = i;
+		pickSides(LABELS(lidx).sides);
+		fprintf('Label "%s" picked!\n', lname);
 	end
 end
-SCART = LABELS(lidx).sides
+if isempty(lidx)
+	fprintf('Label "%s" not found!\n', lname);
+end
 
-clearCarts();
+
 refreshView();
 
 end
