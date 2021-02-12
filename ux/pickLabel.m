@@ -14,7 +14,7 @@ for i = 1:numel(kLabels)
 		fprintf('Label "%s" picked!\n', lname);
 	end
 end
-if isempty(lidx)
+if exist('lidx','var')==0
 	fprintf('Label "%s" not found!\n', lname);
 end
 
