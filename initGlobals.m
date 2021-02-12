@@ -3,7 +3,7 @@ global COLORS;
   COLORS.PointIDs = [220, 220, 220]/255;
   COLORS.POINTS = [25, 100, 150]/255;
   COLORS.SIDES = [0.00, 0.45, 0.74];
-  COLORS.Picked = [180, 0, 135]/255;
+  COLORS.Picked = [255, 134, 13]/255;
   COLORS.EMITTER = [242, 20, 140]/255;
   COLORS.Mesh = [140 140 130]/255;
 
@@ -24,6 +24,11 @@ global SIDES;
   % SIDES.CURV = []; % кривизна сегмента
   % SIDES.prev = []; % номер предыдущего сегмента
   % SIDES.next = []; % номер следующего сегмента
+
+global LABELS;
+	LABELS = [];
+	% LABELS.id = 'lname'; % строка символов, идентифицирующая группу сторон
+	% LABELS.sides = [1 2]; % номера сегментов, на которые будет повешена метка
 
 global RGVP;
   RGVP = []; % Это матрица координат точек для закраски контура
