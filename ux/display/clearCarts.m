@@ -4,5 +4,6 @@ function clearCarts()
 	global PCART;
 	SCART = [];
 	PCART = [];
+
 	refreshView(); % Обновляем вид
 end
