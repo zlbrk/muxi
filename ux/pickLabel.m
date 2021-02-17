@@ -2,15 +2,11 @@ function pickLabel(lname)
 global LABELS;
 global SCART;
 
-% сначала проверим, какие метки у нас есть
+% проверяем есть ли в известных именах lname
 for i = 1:numel(LABELS)
-	kLabels{i,1} = string(LABELS(i).id);
-end
-
-% потом проверяем есть ли в известных именах lname
-for i = 1:numel(LABELS)
-	if checkLabel(lname)
-		pickSides(LABELS(i).sides);
+	[lExists, lNumber] = checkLabel(lname)
+	if lExists
+		pickSides(LABELS(lNumber).sides);
 		fprintf('Label "%s" picked!\n', lname);
 	else
 		fprintf('Label "%s" not found!\n', lname);

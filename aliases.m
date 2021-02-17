@@ -34,6 +34,7 @@ spr = @(Rnew) setPointsR(Rnew);
 sc = @(Zc, Rc, Rs, SD) setCATS(Zc, Rc, Rs, SD);
 setl = @(lname) setLabel(lname);
 pickl = @(lname) pickLabel(lname);
+listl = @() listLabels();
 %% Функции CAE
 % tm = @() toggleMesh();
 % sv = @(V) setVoltage(V);
