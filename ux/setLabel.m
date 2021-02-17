@@ -5,10 +5,16 @@ global SCART;
 if ~ischar(lname)
 	fprintf('Label name %s must be a character array!\n', lname)
 	return
-elseif checkLabel(lname)
-	l.id = lname;
-	l.sides = SCART;
-	LABELS = [LABELS; l];
+else
+	[lExists, lNumber] = checkLabel(lname);
+	if lExists
+		LABELS(lNumber).sides = SCART;
+		fprintf('Label %s already exists! Sides updated!\n', lname)
+	else
+		l.id = lname;
+		l.sides = SCART;
+		LABELS = [LABELS; l];
+	end
 end
 clearCarts();
 refreshView();

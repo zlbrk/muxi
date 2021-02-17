@@ -7,9 +7,10 @@ for i = 1:numel(LABELS)
 end
 
 if ismember(lname, kLabels)
-	[Lia, Locb] = ismember(lname, kLabels);
+	[~, Locb] = ismember(lname, kLabels);
 	labelExists = true;
 	labelNumber = nonzeros(Locb);
 else
 	labelExists = false;
+	labelNumber = numel(LABELS)+1;
 end

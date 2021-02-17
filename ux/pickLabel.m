@@ -8,7 +8,7 @@ for i = 1:numel(LABELS)
 end
 
 % потом проверяем есть ли в известных именах lname
-for i = 1:numel(kLabels)
+for i = 1:numel(LABELS)
 	if checkLabel(lname)
 		pickSides(LABELS(i).sides);
 		fprintf('Label "%s" picked!\n', lname);
