@@ -1,7 +1,8 @@
 *
-!ux/
 !render/
+!ux/
 !ux/modify
+!ux/display
 !.gitignore
 !*.m
 !*.md
