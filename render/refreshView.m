@@ -12,12 +12,12 @@ function refreshView()
 	drawRegion(); % закращиваем регион
  	drawSides(); % рисуем стороны
 	drawPoints(); % рисуем точки
-	if ~isempty(PCART)
-		highlightPCart(); % подсвечиваем выбранные точки, если они есть
-	end
-	if ~isempty(SCART)
-		highlightSCart(); % подсвечиваем выбранные сегменты, если они есть
-	end
+	%if ~isempty(PCART)
+	%	highlightPCart(); % подсвечиваем выбранные точки, если они есть
+	%end
+	%if ~isempty(SCART)
+	%	highlightSCart(); % подсвечиваем выбранные сегменты, если они есть
+	%end
 
 	showPointIDs(); % Выводим номера точек
 
