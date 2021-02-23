@@ -1,7 +1,6 @@
 function pickSides(SideIds)
 % добавление точек в корзину
 	global SCART;
-	global PCART;
 	global SIDES;
 
 	for i = SideIds
@@ -15,7 +14,7 @@ function pickSides(SideIds)
 		end
 		
 		if i == 1 
-			fprintf('You don''t pick side #%d!\n', i);
+			fprintf('You cant''t pick side #%d!\n', i);
 			continue
 		end
 		
