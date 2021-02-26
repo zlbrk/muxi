@@ -6,7 +6,7 @@ if ~ischar(lname)
 	fprintf('Label name %s must be a character array!\n', lname)
 	return
 else
-	[lExists, lNumber] = checkLabel(lname)
+	[lExists, lNumber] = checkLabel(lname);
 	if lExists && lNumber ~= 1
 		LABELS(lNumber).sides = SCART;
 		fprintf('Label "%s" already exists! Sides updated!\n', lname)

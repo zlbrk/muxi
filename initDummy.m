@@ -3,11 +3,12 @@ global POINTS
 global SIDES
 global CATS
 global LABELS
+global BC
 
 Zcat = CATS.Zc; % Определяет положение катода (вообще говоря, надо проверять)
 Rmax = CATS.Rc; % Радиус катода (определяет поперечный размер эмиттера)
 Rs = CATS.Rs; % Радиус сферы катода
-Zmax = 2*CATS.Rc; % Нам всё равно какая длина будет у болванки
+Zmax = floor(2*CATS.Rc); % Нам всё равно какая длина будет у болванки
 
 alpha2 = asind(Rmax/Rs);
 dzN = Rs*cosd(alpha2); % расстояние от z2 (положение катода) до центра сферы
@@ -65,3 +66,8 @@ SIDES([4]).CURV=0;
 % создаём метку катода
 LABELS(1).id = 'cat';
 LABELS(1).sides = [1];
+
+% устанавливаем нулевой потенциал на катоде
+BC(1).sides = 1;
+BC(1).bcType = 1;
+BC(1).bcValue = 0;
