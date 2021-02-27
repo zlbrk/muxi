@@ -4,6 +4,10 @@ function pickPoints(PointIds)
 	global POINTS;
 
 	for i = PointIds
+		if ismember(i, [1, 2])
+			fprintf('You can''t pick point #%d!\n',i);
+			continue
+		end
 		if ~ismember(i, [POINTS.id])
 			fprintf('Point #%d does not exist!\n',i);
 			continue

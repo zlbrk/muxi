@@ -9,22 +9,31 @@ function pickSides(SideIds)
 			fprintf('Side #%d does not exist!\n',i);
 			continue
 		end
-		if ~ismember(i, SCART)
-			SCART = [SCART i];
-		else
+		if  ismember(i, SCART)
 			fprintf('Side #%d is already in the SCART!\n', i);
+			continue
 		end
-		% TODO -----------
-		% 1) check if 1 is a member of SideIds
-		% 2) check if 2 is a member of SideIds
-		% 3) check if last side is a member of SideIds
-
-		if ~ismember(SIDES(i).SP, PCART)
-			pickPoints(SIDES(i).SP); % выбираем начальную точку сегмента
+		
+		if i == 1 
+			fprintf('You cant''t pick side #%d!\n', i);
+			continue
 		end
+		
+		if i == 2
+			SCART = [SCART i];
+			checkPickedPoint(SIDES(i).EP);
+			continue
 
-		if ~ismember(SIDES(i).EP, PCART)
-			pickPoints(SIDES(i).EP); % выбираем конечную точку сегмента
+				
+		elseif i == numel([SIDES.id])
+			SCART = [SCART i];
+			checkPickedPoint(SIDES(i).SP);
+			continue
+		
+		else 
+			SCART = [SCART i];
+			checkPickedPoint(SIDES(i).SP);
+			checkPickedPoint(SIDES(i).EP);
 		end
 	end
 

@@ -5,19 +5,20 @@ function refreshView()
 	global GA;
 	global RGVP;
 	global ModelStateCounter;
-	fprintf('Hello from refreshView!\n');
+	
 	cla(); % очищаем оси
 	RGVP = []; % очищаем точки визуализации (иначе их будет накапливаться очень много)
  	evalSides(); % вычисляем координаты точек RGVP, необходимых для закраски региона 
 	drawRegion(); % закращиваем регион
  	drawSides(); % рисуем стороны
-	if ~isempty(SCART)
-		highlightSCart(); % подсвечиваем выбранные сегменты, если они есть
-	end
 	drawPoints(); % рисуем точки
-	if ~isempty(PCART)
-		highlightPCart(); % подсвечиваем выбранные точки, если они есть
-	end
+	%if ~isempty(PCART)
+	%	highlightPCart(); % подсвечиваем выбранные точки, если они есть
+	%end
+	%if ~isempty(SCART)
+	%	highlightSCart(); % подсвечиваем выбранные сегменты, если они есть
+	%end
+
 	showPointIDs(); % Выводим номера точек
 
 	xlim(GA.XLim);
