@@ -1,6 +1,7 @@
 function pickSides(SideIds)
 % добавление точек в корзину
 	global SCART;
+	global PCART;
 	global SIDES;
 
 	for i = SideIds

@@ -2,6 +2,7 @@ function initDummy()
 global POINTS
 global SIDES
 global CATS
+global LABELS
 
 Zcat = CATS.Zc; % Определяет положение катода (вообще говоря, надо проверять)
 Rmax = CATS.Rc; % Радиус катода (определяет поперечный размер эмиттера)
@@ -61,3 +62,6 @@ SIDES([1]).CURV=1/Rs;
 SIDES([3]).CURV=0;
 SIDES([2]).CURV=0;
 SIDES([4]).CURV=0;
+% создаём метку катода
+LABELS(1).id = 'cat';
+LABELS(1).sides = [1];

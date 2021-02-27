@@ -2,7 +2,6 @@
 clear;
 close all;
 clc;
-
 %Определение псевдонимов API
 aliases;
 
