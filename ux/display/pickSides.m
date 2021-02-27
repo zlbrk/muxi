@@ -14,6 +14,11 @@ function pickSides(SideIds)
 		else
 			fprintf('Side #%d is already in the SCART!\n', i);
 		end
+		% TODO -----------
+		% 1) check if 1 is a member of SideIds
+		% 2) check if 2 is a member of SideIds
+		% 3) check if last side is a member of SideIds
+
 		if ~ismember(SIDES(i).SP, PCART)
 			pickPoints(SIDES(i).SP); % выбираем начальную точку сегмента
 		end
