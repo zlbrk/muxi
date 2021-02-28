@@ -30,6 +30,13 @@ global LABELS;
 	% LABELS.id = 'lname'; % строка символов, идентифицирующая группу сторон
 	% LABELS.sides = [1 2]; % номера сегментов, на которые будет повешена метка
 
+global BC; % Boundary Conditions
+  BC = [];
+  % BC.sides = [int]; % номера сторон
+  % BC.bcType = int(1|2); % тип граничного условия
+  % BC.bcValue = double(value); % значение граничного условия
+
+
 global RGVP;
   RGVP = []; % Это матрица координат точек для закраски контура
              % Region visualization points

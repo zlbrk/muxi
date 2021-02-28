@@ -32,11 +32,13 @@ spz = @(Znew) setPointsZ(Znew);
 spr = @(Rnew) setPointsR(Rnew);
 
 sc = @(Zc, Rc, Rs, SD) setCATS(Zc, Rc, Rs, SD);
-setl = @(lname) setLabel(lname);
-pickl = @(lname) pickLabel(lname);
+slb = @(lname) setLabel(lname);
+plb = @(lname) pickLabel(lname);
+llb = @() listLabels();
 %% Функции CAE
 % tm = @() toggleMesh();
-% sv = @(V) setVoltage(V);
+sBC = @(bcType, bcValue) setBC(bcType, bcValue); % установить ГУ
+lBC = @() listBC(); % вывести ГУ в виде таблицы 
 % cf = @() createFile();
 
 %% Низкоуровневые функции 
