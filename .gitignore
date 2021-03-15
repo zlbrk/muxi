@@ -5,6 +5,7 @@
 !ux/display
 !ux/BC
 !ux/labels
+!ux/mesh
 !.gitignore
 !*.m
 !*.md
