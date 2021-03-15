@@ -3,6 +3,8 @@
 !ux/
 !ux/modify
 !ux/display
+!ux/BC
+!ux/labels
 !.gitignore
 !*.m
 !*.md
