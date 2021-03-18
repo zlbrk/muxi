@@ -1,4 +1,4 @@
-function listBC()
+function sSpec = listBC()
 global SIDES;
 
 % выводим имена существующих меток
