@@ -21,6 +21,14 @@ for i = 1:numel(SIDES)
 end
 iidxs = find(iCFI==Inf); % индексы лишних вхождений
 iCFI(iidxs) = [] % дропаем лишние элементы
+
+% TODO
+% unique(iCFI)
+% find(iCFI==100)
+% iCFI(ans(end)) = []
+% iCFI(ans(1)) = []
+
+
 end
 
 function [sId, bcType, bcValue, sLb] = checkSide(s)
