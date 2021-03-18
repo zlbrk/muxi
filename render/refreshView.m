@@ -20,8 +20,8 @@ function refreshView()
 	ylim(GA.YLim);
 	daspect(GA.DataAspectRatio);
 
-	legend(sprintf('State #%d',ModelStateCounter));
-	legend('Orientation','horizontal');
-	legend('Location','northoutside');
+	title(sprintf('State #%d',ModelStateCounter));
+	% legend('Orientation','horizontal');
+	% legend('Location','northoutside');
 	% legend('Location','northwestoutside');
 end
