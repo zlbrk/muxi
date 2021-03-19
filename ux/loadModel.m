@@ -10,7 +10,7 @@ fullname = ['saves/' basename '.mat'];
 % - Задача со звёздочкой: вывод подсказки, если функция вызвана без аргументов, 
 %   Подсказка: нужно использовать varargin (в хелпе есть классный пример).
 if exist(fullname)==2
-	load(fullname, 'POINTS', 'SIDES');
+	load(fullname, 'POINTS', 'SIDES', 'LABELS', 'BC', 'ZONES');
 else
 	fprintf('File "%s" is not found \n', basename);
 	return
