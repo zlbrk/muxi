@@ -1,4 +1,4 @@
-function iCFI = mkCFI()
+function [iCFI uCFI ELECTRODES] = mkCFI()
 global BC;
 global SIDES;
 
@@ -22,8 +22,14 @@ end
 iidxs = find(iCFI==Inf); % индексы лишних вхождений
 iCFI(iidxs) = [] % дропаем лишние элементы
 
-% TODO
-% unique(iCFI)
+uCFI = unique(iCFI); % Определяем значения потенциалов (уникальные)
+ELECTRODES = []
+% Находим индексы в iCFI
+for i = 1:numel(uCFI)
+	ELECTRODES(i).idxs = find(iCFI==uCFI(i))
+end
+% TODO CheckElectrode
+
 % find(iCFI==100)
 % iCFI(ans(end)) = []
 % iCFI(ans(1)) = []
@@ -31,7 +37,7 @@ iCFI(iidxs) = [] % дропаем лишние элементы
 
 end
 
-function [sId, bcType, bcValue, sLb] = checkSide(s)
+function [sId, bcType, bcValue, sLb] = checkElectrode(s)
 global LABELS;
 global BC;
 	sId = s.id;
