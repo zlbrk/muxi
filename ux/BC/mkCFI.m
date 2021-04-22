@@ -1,4 +1,4 @@
-function [iCFI uCFI ELECTRODES] = mkCFI()
+function [iCFI uCFI vCFIPTS CFIPTS] = mkCFI()
 global BC;
 global SIDES;
 
@@ -19,48 +19,20 @@ for i = 1:numel(SIDES)
 	end
 
 end
+
 iidxs = find(iCFI==Inf); % индексы лишних вхождений
 iCFI(iidxs) = [] % дропаем лишние элементы
 
-uCFI = unique(iCFI); % Определяем значения потенциалов (уникальные)
-ELECTRODES = []
+uCFI = unique(iCFI, 'stable'); % Определяем значения потенциалов (уникальные)
+ELECTRODES1 = []
 % Находим индексы в iCFI
 for i = 1:numel(uCFI)
-	ELECTRODES(i).idxs = find(iCFI==uCFI(i))
-end
-% TODO CheckElectrode
-
-% find(iCFI==100)
-% iCFI(ans(end)) = []
-% iCFI(ans(1)) = []
-
-
+	ELECTRODES1(i).idxs = find(iCFI==uCFI(i))
 end
 
-function [sId, bcType, bcValue, sLb] = checkElectrode(s)
-global LABELS;
-global BC;
-	sId = s.id;
-	for i = 1:numel(LABELS)
-		if ismember(sId, LABELS(i).sides)
-			sLb = LABELS(i).id;
-			break
-		else
-			sLb = 'nil';
-		end
-	end
+vCFIPTS = struct('Voltage', num2cell(unique(iCFI, 'stable')), 'numPTS', arrayfun(@(x) {sum(iCFI==x)/2+1}, unique(iCFI, 'stable')));
 
-	for i=1:numel(BC)
-		if ismember(sId, BC(i).sides)
-			bcType = BC(i).bcType;
-			bcValue = BC(i).bcValue;
-			break
-		else
-			bcType = 'nil';
-			bcValue = 'nil';
-		end
-	end
-
-	sSpec = {sId, bcType, bcValue, sLb}; % side specificacion
-
+for i = 1:numel([vCFIPTS.numPTS])
+CFIPTS(i).FI = vCFIPTS(i).Voltage/max(vCFIPTS.Voltage);
+CFIPTS(i).numPTS = vCFIPTS(i).numPTS;
 end
