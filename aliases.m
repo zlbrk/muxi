@@ -31,7 +31,7 @@ apr = @(AlignPointId) alignPointsR(AlignPointId);
 spz = @(Znew) setPointsZ(Znew);
 spr = @(Rnew) setPointsR(Rnew);
 
-sc = @(Zc, Rc, Rs, SD) setCATS(Zc, Rc, Rs, SD);
+sc = @(Zc, Rc, Rs, nTR, SD) setCATS(Zc, Rc, Rs, nTR, SD);
 slb = @(lname) setLabel(lname);
 plb = @(lname) pickLabel(lname);
 llb = @() listLabels();
@@ -39,7 +39,7 @@ llb = @() listLabels();
 % tm = @() toggleMesh();
 sBC = @(bcType, bcValue) setBC(bcType, bcValue); % установить ГУ
 lBC = @() listBC(); % вывести ГУ в виде таблицы 
-% cf = @() createFile();
+cf = @() createFile(); % Создать файл INR.TX для EOS
 
 %% Низкоуровневые функции 
 % initFigure = @() initFigure();

@@ -18,6 +18,8 @@ initFigure();
 CATS.Zc = 2;
 CATS.Rc = 4.3;
 CATS.Rs = 9;
+CATS.Zs = 10;
+CATS.nTR = 30;
 CATS.SD = 0.075;
 
 % Определяем параметры зон

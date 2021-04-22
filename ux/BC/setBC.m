@@ -21,7 +21,7 @@ for i = 1:numel(SIDES)
 	
 	[sSpec{i,1}, sSpec{i,2}, sSpec{i,3}, sSpec{i,4}] = checkSide(SIDES(i)); % make side specification to list
 	if ((sSpec{i,2} == 'nil') | (sSpec{i,3} == 'nil')) & ismember(i, SCART)
-		bc.sides = SCART;
+		bc.sides = SIDES(i).id;
 		bc.bcType = bcType;
 		bc.bcValue = bcValue;
 		i
