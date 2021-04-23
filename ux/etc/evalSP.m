@@ -10,7 +10,7 @@ getVP = @(z2, r2, Rs) getVisPoints(z2, r2, Rs);
 r1 = 0;
 r2 = 8.6/2;
 Rs = 9.0;
-z2 = 2.0;
+z2 = 3.0;
 z1 = getSP(z2, r2, Rs);
 
 
