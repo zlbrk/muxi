@@ -2,10 +2,10 @@ function undoLastCommand()
 global ModelStateCounter;
 
 if ModelStateCounter>1
-	restoreCheckpoint(ModelStateCounter-1); % РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµРј РјРѕРґРµР»СЊ РёР· С‡РµРєРїРѕР№РЅС‚Р°
-	fprintf("Last command undone!\n"); % РїРѕР·РґСЂР°РІР»СЏРµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ СЃ РїРѕР±РµРґРѕР№!
+	restoreCheckpoint(ModelStateCounter-1); % восстанавливаем модель из чекпойнта
+	fprintf("Last command undone!\n"); % поздравляем пользователя с победой!
 else
-	fprintf("Initial state reached. Nothing to undo!\n"); % РїСЂРµРґСѓРїСЂРµР¶РґР°РµРј, С‡С‚Рѕ РґР°Р»СЊС€Рµ СѓР¶Рµ РЅРёС‡РµРіРѕ РЅРµС‚
+	fprintf("Initial state reached. Nothing to undo!\n"); % предупреждаем, что дальше уже ничего нет
 end
 
 end

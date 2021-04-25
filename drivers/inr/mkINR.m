@@ -1,11 +1,24 @@
-function createFile()
+function mkINR()
 
 global POINTS;
 global CATS;
 global BC;
 global ZONES;
-global CFIPTS;
-global vCFIPTS;
+global SIDES;
+
+%«аписывем граничные услови€ и провер€ем, что они заполнены
+%---------------------------------------
+[iCFI uCFI vCFIPTS CFIPTS] = mkCFI()
+
+if  numel([POINTS.id]) ~= sum([CFIPTS.numPTS])
+    fprintf('√раничные услови€ установлены не на все стороны!\n');
+    return
+end
+
+if  CATS.Zc ~= POINTS(2).Z
+    fprintf(' оординты катода не совподают с координатами контура!\n');
+    return
+end
 
 % оординаты контура
 %----------------------------------------
@@ -35,7 +48,7 @@ stepsR = [ZONES.RN];
 
 fprintf(' оличество точек контура %d\n',numel(contZ));
 
-fidInr = fopen('drivers/inr/inr.tx', 'w');
+fidInr = fopen('out/inr.tx', 'w');
 
 % «аписываем координаты контура
 %---------------------------------------

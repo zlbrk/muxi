@@ -9,3 +9,7 @@
 !.gitignore
 !*.m
 !*.md
+!drivers/
+!drivers/comi
+!drivers/inr
+out/
