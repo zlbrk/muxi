@@ -1,4 +1,4 @@
-% Это псевдонимы функций, необходимых в интерактивной работе
+% Р­С‚Рѕ РїСЃРµРІРґРѕРЅРёРјС‹ С„СѓРЅРєС†РёР№, РЅРµРѕР±С…РѕРґРёРјС‹С… РІ РёРЅС‚РµСЂР°РєС‚РёРІРЅРѕР№ СЂР°Р±РѕС‚Рµ
 
 refView = @() refreshView();
 fitView = @() fitView();
@@ -10,7 +10,7 @@ pp = @(Ids) pickPoints(Ids);
 ps = @(Ids) pickSides(Ids);
 dp = @(Ids) dropPoints(Ids);
 ds = @(Ids) dropSides(Ids);
-delp = @() deletePoints(); % команда специально длиннее, чтобы нельзя было по ошибке её ввести
+delp = @() deletePoints(); % РєРѕРјР°РЅРґР° СЃРїРµС†РёР°Р»СЊРЅРѕ РґР»РёРЅРЅРµРµ, С‡С‚РѕР±С‹ РЅРµР»СЊР·СЏ Р±С‹Р»Рѕ РїРѕ РѕС€РёР±РєРµ РµС‘ РІРІРµСЃС‚Рё
 an = @(num) addPointsNext(num);
 ff = @(off_mm) forkForward(off_mm);
 fb = @(off_mm) forkBackward(off_mm);
@@ -35,13 +35,13 @@ sc = @(Zc, Rc, Rs, nTR, SD) setCATS(Zc, Rc, Rs, nTR, SD);
 slb = @(lname) setLabel(lname);
 plb = @(lname) pickLabel(lname);
 llb = @() listLabels();
-%% Функции CAE
+%% Р¤СѓРЅРєС†РёРё CAE
 % tm = @() toggleMesh();
-sBC = @(bcType, bcValue) setBC(bcType, bcValue); % установить ГУ
-lBC = @() listBC(); % вывести ГУ в виде таблицы 
-cf = @() createFile(); % Создать файл INR.TX для EOS
+sBC = @(bcType, bcValue) setBC(bcType, bcValue); % СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р“РЈ
+lBC = @() listBC(); % РІС‹РІРµСЃС‚Рё Р“РЈ РІ РІРёРґРµ С‚Р°Р±Р»РёС†С‹ 
+cf = @() createFile(); % РЎРѕР·РґР°С‚СЊ С„Р°Р№Р» INR.TX РґР»СЏ EOS
 
-%% Низкоуровневые функции 
+%% РќРёР·РєРѕСѓСЂРѕРІРЅРµРІС‹Рµ С„СѓРЅРєС†РёРё 
 % initFigure = @() initFigure();
 % drawVoid = @() drawVoid();
 % drawPoints = @() drawPoints();
