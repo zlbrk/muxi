@@ -57,15 +57,15 @@ global ZONES;
   % ZONES.ZN = [110, 60]; % количество шагов по Z (максимум 15 штук)
   % ZONES.RN = [430]; % количество шагов по R (максимум 15 штук)
 
-global vCFIPTS; % Потенциал в угловых точках контура
-  vCFIPTS = [];
-  % vCFIPTS.Voltage = [];
-  % vCFIPTS.numPTS = [];
+%global vCFIPTS; % Потенциал в угловых точках контура
+%  vCFIPTS = [];
+%  % vCFIPTS.Voltage = [];
+%  % vCFIPTS.numPTS = [];
 
-global CFIPTS; % Точки контура, в которых установлен потенциал
-  CFIPTS = [];
-  % CFIPTS.FI = [];
-  % CFIPTS.numPTS = [];
+%global CFIPTS; % Точки контура, в которых установлен потенциал
+%  CFIPTS = [];
+%  % CFIPTS.FI = [];
+%  % CFIPTS.numPTS = [];
 
 
 %% Определяем глобальную переменную графического контекста
