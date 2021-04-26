@@ -133,15 +133,15 @@ fprintf(fidInr, 'UP/U\n%G\n', Voltage);
 
 %Записываем настройки магнитного поля
 %----------------------------------------
-fidMagnet = fopen('MagField.txt');
+% fidMagnet = fopen('MagField.txt');
 
-while ~feof(fidMagnet)
-      A = fgetl(fidMagnet);
-      str = sprintf('\n%s\n', A);
-      fprintf(fidInr, str);
-end
+% while ~feof(fidMagnet)
+%       A = fgetl(fidMagnet);
+%       str = sprintf('\n%s\n', A);
+%       fprintf(fidInr, str);
+% end
 
-fclose(fidMagnet);
+% fclose(fidMagnet);
 
 %Записываем настройки для решения
 %----------------------------------------
