@@ -39,7 +39,7 @@ llb = @() listLabels();
 % tm = @() toggleMesh();
 sBC = @(bcType, bcValue) setBC(bcType, bcValue); % установить ГУ
 lBC = @() listBC(); % вывести ГУ в виде таблицы 
-cf = @() createFile(); % Создать файл INR.TX для EOS
+mki = @() mkINR(); % Создать файл INR.TX для EOS
 
 %% Низкоуровневые функции 
 % initFigure = @() initFigure();
